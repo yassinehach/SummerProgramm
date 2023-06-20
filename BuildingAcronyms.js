@@ -53,14 +53,14 @@ const BuildingAcronyms = ({navigation}) => {
   };
   const [selectedBuilding, setSelectedBuilding] = useState('');
   const handleNextPress = () => {
-    const selectedItem = data2.find(item => item.acronym === selectedBuilding);
+    const selectedItem = data2.find(item => item.Acronym === selectedBuilding);
     console.log(selectedItem)
     
     if (selectedItem) {
       navigation.navigate('BuildingDetails', {
-        acronym: selectedItem.acronym,
-        location: selectedItem.location,
-        name: selectedItem.name,
+        acronym: selectedItem.Acronym,
+        location: selectedItem.Location,
+        name: selectedItem.Name,
       });
     }
   }
@@ -81,8 +81,8 @@ const BuildingAcronyms = ({navigation}) => {
         {data2.map((item) => (
           <Picker.Item
             key={item.acronym}
-            label={item.name}
-            value={item.acronym}
+            label={item.Name}
+            value={item.Acronym}
             style = {styles.pickerItem}
             
           />

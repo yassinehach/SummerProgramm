@@ -53,7 +53,7 @@ const SearchScreen = ({navigation}) => {
         <Picker.Item label="select a Class..." value="" />
         {data2.map((item) => (
           <Picker.Item
-            key={item.id}
+            key={item.Course}
             label={item.Course}
             value={item.Course}
             
