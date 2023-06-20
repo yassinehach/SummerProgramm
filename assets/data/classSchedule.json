@@ -16,11 +16,5 @@
   "Day": "Monday-Thursday",
   "Time": "12pm-6pm",
   "Location": "Hybrid"
- },
- {
-  "Course": "React Native",
-  "Day": "Monday-Friday",
-  "Time": "10am-13pm",
-  "Location": "Online"
  }
 ]
