@@ -1,21 +1,25 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, Linking, FlatList, TouchableOpacity } from 'react-native';
 import BottomNavigation from './BottomNavigation';
+import BusSchedule from './Resources/BusSchedule';
 
 const Resources = ({navigation}) => {
-    const handlePress = () => {
-    Linking.openURL('https://www.google.com/');
-  };
+  
+    
   const resourcesData = [
-    { id: '1', name: 'Bus Schedule', url: 'https://www.google.com/' },
-    { id: '2', name: 'Parking Information', url: 'https://www.google.com/' },
-    { id: '3', name: 'Mental Health Resources', url: 'https://www.google.com/' },
-    { id: '4', name: 'Interactive Campus Map', url: 'https://www.google.com/' },
-    { id: '5', name: 'University acronyms', url: 'https://www.google.com/' },
-    { id: '6', name: 'More resources', url:'https://www.google.com/' },
+    { id: '1', name: 'Bus Schedule', url: 'https://www.google.com/', nav: 'BusSchedule' },
+    { id: '2', name: 'Parking Information', url: 'https://www.google.com/', nav: 'Parking' },
+    { id: '3', name: 'Mental Health Resources', url: 'https://www.google.com/', nav: 'MentalHealth' },
+    { id: '4', name: 'Interactive Campus Map', url: 'https://www.google.com/', nav: 'InteractiveMap' },
+    { id: '5', name: 'University acronyms', url: 'https://www.google.com/', nav: 'UniversityAcronyms' },
+    { id: '6', name: 'More resources', url:'https://www.google.com/', nav: 'Compass' },
   ];
 
-  const renderResourceItem = ({ item }) => (
+  const renderResourceItem = ({ item }) => {
+    const handlePress = () => {
+    navigation.navigate(item.nav);
+  };
+  return(
     <View>
     <View style={styles.resourceItem}>
       <Text style={styles.resourceName}>{item.name}</Text>
@@ -25,7 +29,7 @@ const Resources = ({navigation}) => {
     </View>
     <View style={styles.separator} />
     </View>
-  );
+  );}
 
   return (
     <View style={styles.container}>
@@ -49,7 +53,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logo: {
-    marginTop: 10,
+    marginTop: 40,
     width: 242,
     height: 40,
     marginBottom: 60,
@@ -57,21 +61,22 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: '800',
-    marginBottom: 20,
+    marginBottom: 30,
     paddingRight: 90
   },
   resourcesList: {
-    marginTop: 20,
+    marginTop: 10,
     width: '90%',
-    backgroundColor: '#0E3880',
-    padding: 30,
+    backgroundColor: '#115BFB',
     borderRadius: 40
   },
   resourceItem: {
     marginTop: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 25,
+    marginBottom: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 5,
   },
   resourceName: {
     color: 'white',
@@ -84,7 +89,7 @@ const styles = StyleSheet.create({
   },
   separator: {
     borderBottomWidth: 1,
-    borderBottomColor: 'black',
+    borderBottomColor: 'white',
     
   },
 });

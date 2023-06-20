@@ -11,6 +11,16 @@ import Events from './Events';
 import SummerFest from './SummFest';
 import ArtFair from './ArtFair';
 import Acronyms from './Acronyms';
+import Announcements from './Announcements';
+import Classes from './Classes';
+import Parking from './Resources/Parking';
+import MentalHealth from './Resources/MentalHealth';
+import BusSchedule from './Resources/BusSchedule';
+import InteractiveMap from './Resources/InteractiveMap';
+import UniversityAcronyms from './Resources/UniversityAcronyms';
+import BuildingAcronyms from './BuildingAcronyms';
+import BuildingDetails from './BuildingDetail';
+import CourseDetails from './CourseDetails';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
@@ -31,8 +41,58 @@ export default function App() {
       options={{headerShown: false}}
       />
       <Stack.Screen
+      name = "Announcements"
+      component={Announcements}
+      options={{title:'Back'}}
+      />
+      <Stack.Screen
+      name = "BuildingsAcronyms"
+      component={BuildingAcronyms}
+      options={{title:'Back'}}
+      />
+      <Stack.Screen
+      name = "BuildingDetails"
+      component={BuildingDetails}
+      options={{title:'Back'}}
+      />
+      <Stack.Screen
+      name = "CourseDetails"
+      component={CourseDetails}
+      options={{title:'Back'}}
+      />
+      <Stack.Screen
+      name = "Classes"
+      component={Classes}
+      options={{title:'Back'}}
+      />
+      <Stack.Screen
       name = "Resources"
       component={Resources}
+      options={{title:'Back'}}
+      />
+      <Stack.Screen
+      name = "Parking"
+      component={Parking}
+      options={{title:'Back'}}
+      />
+      <Stack.Screen
+      name = "InteractiveMap"
+      component={InteractiveMap}
+      options={{title:'Back'}}
+      />
+      <Stack.Screen
+      name = "UniversityAcronyms"
+      component={UniversityAcronyms}
+      options={{title:'Back'}}
+      />
+      <Stack.Screen
+      name = "BusSchedule"
+      component={BusSchedule}
+      options={{title:'Back'}}
+      />
+      <Stack.Screen
+      name = "MentalHealth"
+      component={MentalHealth}
       options={{title:'Back'}}
       />
       <Stack.Screen
@@ -59,7 +119,7 @@ export default function App() {
       <Stack.Screen
       name = "Support"
       component={SupportScreen}
-      options={{headerShown: false}}
+      options = {{title: 'Back'}}
       />
       <Stack.Screen
       name = "Search"
@@ -92,8 +152,8 @@ const WelcomeScreen = ({navigation}) => {
         <Image source={require('./assets/logo.png')} style={styles.logo} />
       </View>
       <View style={styles.contentContainer}>
-        <Text style={styles.title}>WELCOME</Text>
-        <Text style={styles.subtitle}>2023 Summer Program</Text>
+        {/* <Text style={styles.title}>WELCOME</Text> */}
+        <Text style={styles.subtitle}>2023 ICPSR Summer Program</Text>
       </View>
         <TouchableOpacity style={styles.button} onPress={handleContinue}>
           <Text style={styles.buttonText}>Continue</Text>
@@ -113,7 +173,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
   },
   logoText: {
     fontSize: 24,
@@ -121,15 +180,14 @@ const styles = StyleSheet.create({
   logo: {
     
     marginTop: 10,
-    width: 242,
-    height: 40,
+    width: 314,
+    height: 52,
     marginBottom: 40,
   },
   logoContainer: {
     // Add styling for logo container if needed
-    position : 'absolute',
-    top: 74,
-    left: 0,
+    marginTop: 100
+    
     
   },
   contentContainer: {
@@ -141,15 +199,16 @@ const styles = StyleSheet.create({
     margin: 10
   },
   subtitle: {
+    marginTop: 200,
     fontSize: 20,
     marginBottom : 40
     
   },
   button: {
-    position : 'absolute',
-    top: 679,
-    marginTop: 20,
-    backgroundColor: '#0E3880',
+    // position : 'absolute',
+    // top: 679,
+    marginTop: 240,
+    backgroundColor: '#115BFB',
     width: 300,
     justifyContent: 'center',
     alignItems: 'center',

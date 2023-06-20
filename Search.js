@@ -1,17 +1,41 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import {Picker} from '@react-native-picker/picker'
+import BottomNavigation from './BottomNavigation';
 
-const SearchScreen = () => {
+const SearchScreen = ({navigation}) => {
+  const data = [
+    { id: 1, course: 'course1', day: 'Monday-friday', location: 'Location 1', time: '9am-5pm' },
+    { id: 2, course: 'course2', day: 'Monday-friday', location: 'Location 2', time:'10am-4pm' },
+    { id: 3, course: 'course3', day: 'Monday-thursday', location: 'Location 3', time: '12pm-6pm' },
+  ];
     const [selectedClass, setSelectedClass] = useState('');
+    const [data2, setData2] = useState([])
 
-    const handleClassChange = (value) => {
-        setSelectedClass(value);
-    };
+    const fetchData = async () => {
+    try {
+      const jsonData = require('./assets/data/classSchedule.json')
+      setData2(jsonData);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
 
     const handleNextPress = () => {
+    const selectedItem = data2.find(item => item.Course === selectedClass);
+    if (selectedItem) {
+      navigation.navigate('CourseDetails', {
+        course: selectedItem.Course,
+        day: selectedItem.Day,
+        location: selectedItem.Location,
+        time: selectedItem.Time
+      });
+    }
     // Handle the "Next" button press
-    console.log('Next button pressed');
+    // console.log('Next button pressed');
   };
 
   return (
@@ -19,15 +43,23 @@ const SearchScreen = () => {
       <Text style={styles.text}>What class are you enrolled in?</Text>
       <View style={styles.pickerContainer}>
       <Picker
+        
         selectedValue={selectedClass}
-        onValueChange={handleClassChange}
+        onValueChange={(value) => setSelectedClass(value)}
         style={styles.picker}
         mode='dropdown'
         
       >
-        <Picker.Item label="Art" value="option1" />
-        <Picker.Item label="Calc" value="option2" />
-        <Picker.Item label="Design" value="option3" />
+        <Picker.Item label="select a Class..." value="" />
+        {data2.map((item) => (
+          <Picker.Item
+            key={item.id}
+            label={item.Course}
+            value={item.Course}
+            
+            
+          />
+        ))}
       </Picker>
       </View>
       <TouchableOpacity onPress={handleNextPress}>
@@ -35,6 +67,7 @@ const SearchScreen = () => {
         <Text style={styles.buttonText}> Next </Text>
         </View>
       </TouchableOpacity>
+      <BottomNavigation navigation={navigation}/>
     </View>
   );
 };

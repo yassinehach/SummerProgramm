@@ -11,7 +11,7 @@ const BottomNavigation = ({navigation}) => {
         navigation.navigate('Search')
     }
     const handleCompass = () => {
-        navigation.navigate('Compass')
+        navigation.navigate('BuildingsAcronyms')
     }
     const handleHome = () => {
         navigation.navigate('Home')
@@ -25,7 +25,7 @@ const BottomNavigation = ({navigation}) => {
         <TouchableOpacity onPress={handleHome}>
         <Image style={styles.footerIcon} source={require('./assets/home.png')}></Image>
       </TouchableOpacity>
-      <TouchableOpacity onPress={handleSearch}>
+      <TouchableOpacity onPress={handleCompass}>
         <Image style={styles.footerIcon} source={require('./assets/compass.png')}></Image>
       </TouchableOpacity>
       <TouchableOpacity onPress={handleResources}>
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     bottom : 0,
     borderRadius : 45,
     width: '100%',
-    backgroundColor: '#0E3880' 
+    backgroundColor: '#020BA9' 
   },
 });
 

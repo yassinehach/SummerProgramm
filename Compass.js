@@ -6,15 +6,14 @@ import BottomNavigation from './BottomNavigation';
 const CompassScreen = ({navigation}) => {
     
     const data = [
-    { id: '1', text: 'University Acronyms' },
-    { id: '2', text: 'Reflection Rooms on Campus' },
-    { id: '3', text: 'Bathrooms on Campus' },
-    { id: '4', text: 'OTHERS' },
-    { id: '5', text: 'Rooms on Campus' },
-    { id: '6', text: 'OTHERS' },
-    { id: '7', text: 'OTHERS' },
-    { id: '8', text: 'OTHERS' },
-    { id: '9', text: 'OTHERS' },
+    { id: '1', text: 'Reflection Rooms on Campus' },
+    { id: '2', text: 'Accessible Bathrooms on Campus' },
+    { id: '3', text: 'Gender-inclusive restrooms' },
+    { id: '4', text: 'Lactation room on campus' },
+    { id: '5', text: 'Child care resources' },
+    { id: '6', text: 'Off-campus child care' },
+    { id: '7', text: 'LGBTQ resources' },
+    { id: '8', text: 'Others' },
   ];
   const renderItem = ({ item }) => {
     const handleArrow = () => {
@@ -28,7 +27,7 @@ const CompassScreen = ({navigation}) => {
         <TouchableOpacity onPress={handleArrow}>
       <View style={styles.itemContainer}>
         <Text style={styles.itemText}>{item.text}</Text>
-        <Ionicons name="chevron-forward" size={24} color="black" />
+        <Ionicons name="chevron-forward" size={24} color="#115BFB" />
       </View>
       <View style={styles.separator} />
       </TouchableOpacity>
@@ -75,7 +74,7 @@ const styles = StyleSheet.create({
   },
   separator: {
     height: 1,
-    backgroundColor: 'gray',
+    backgroundColor: '#115BFB',
     marginHorizontal: 16,
   },
 });

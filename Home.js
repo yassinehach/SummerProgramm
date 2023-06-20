@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { View, FlatList, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { MaterialIcons, Entypo } from '@expo/vector-icons';
 import Carousel from 'react-native-snap-carousel';
 import BottomNavigation from './BottomNavigation';
@@ -9,52 +9,85 @@ const HomeScreen = ({navigation}) => {
         navigation.navigate('Events')
     }
     const handleAnnouncement = () => {
-        navigation.navigate('Compass')
+        navigation.navigate('Announcements')
     }
     const handleResources = () => {
         navigation.navigate('Resources')
     }
+    const handleClasses = () => {
+      navigation.navigate('Classes')
+
+    }
     const renderFirstSliderItem = ({item}) => {
+      const handleResourcePress = () => {
+        navigation.navigate(item.nav)
+      }
         return (
+          <TouchableOpacity onPress={handleResourcePress}>
             <View style={styles.sliderItemOne}>
-                <Text style={styles.sliderText}>{item}</Text>
+                <Text style={styles.sliderText}>{item.name}</Text>
             </View>
+            </TouchableOpacity>
         )
     }
     const renderSecondSliderItem = ({item}) => {
+      const handleEventPress = () => {
+      const data= {
+            id : item.id,
+            name : item.name,
+            date : item.date,
+            img : item.img,
+            description : item.description,
+            location : item.location,
+            url : item.url,
+            location2 : item.location2
+        }
+        navigation.navigate('SummerFest', {data} )
+      }
         return (
-            <View style={styles.sliderItemTwo}>
+          <TouchableOpacity onPress={handleEventPress}>
+            <View style={styles.sliderItemTwo}>              
                 <Text style={styles.sliderText}>{item.name}</Text>
                 <View style={styles.dateContainer}>
                     <Text style={styles.dateText}> {item.date}</Text>
-                </View>
+                </View>              
             </View>
-        )
+            </TouchableOpacity>
+        )        
     }
+    
+    const data = [
+    { id: '1', title: 'First in-person workshops', subtitle: 'Monday, June 5, 2023' },
+    { id: '2', title: 'First 3-week session', subtitle: 'Monday, June 18, 2023' },
+    { id: '3', title: 'First picnic', subtitle: 'Saturday, July 1, 2023' },
+  ];
   return (
     <View style={styles.container}>
+      <ScrollView >
+        <View style= {styles.scrollview}>
+          <View style= {styles.menuLogoContainer}>
+            <TouchableOpacity>
+        <Entypo name="menu" size={45} color="#115BFB" style={styles.menuIcon} />
+        </TouchableOpacity>
+      <Image source={require('./assets/logo.png')} style={styles.logo} />
+      </View>
       <TouchableOpacity  style={styles.button} onPress={handleAnnouncement}>
-        <Image source={require('./assets/yellfla.png')} style={styles.flag} />
+        {/* <Image source={require('./assets/yellfla.png')} style={styles.flag} /> */}
         <Image source={require('./assets/whiteAnnouncement.png')} style={styles.icon} />
         {/* <MaterialIcons name="volume-up" size={24} color="white" style={styles.icon} /> */}
         <Text style={styles.buttonText}>Announcements</Text>
-        <Entypo name="chevron-right" size={30} color="black" style={styles.arrowIcon} />        
+        <Entypo name="chevron-right" size={30} color="white" style={styles.arrowIcon} />        
       </TouchableOpacity>
-      <View style={styles.resourcesContainer}>
-        <Text style={styles.resourcesText}>Resources</Text>
-        <TouchableOpacity onPress={handleResources}>
+      <View style= {styles.ClassesContainer}>
+      <Text style={styles.classesText}> Upcoming Classes</Text>
+          <TouchableOpacity onPress={handleClasses}>
             <View>
           <Text style={styles.seeAllText}>See All</Text>
           </View>
-        </TouchableOpacity>
+          </TouchableOpacity>
       </View>
-      <Carousel
-      data = {['Bus Schedule', 'parking Information', 'Mental Health Resources','Interactive Campus Map', 'University acronyms', 'More Resources']}
-      renderItem={renderFirstSliderItem}
-      sliderWidth={400}
-      itemWidth={200}
-      layout='default'
-      />
+      <Text style={styles.noClasses}> No upcoming classes</Text>
+      {/* here */}
       <View style={styles.eventsContainer}>
         <Text style={styles.eventsText}>Events</Text>
         <TouchableOpacity onPress={handleEvents}>
@@ -66,17 +99,53 @@ const HomeScreen = ({navigation}) => {
       <Carousel
       
     //   data = {['Summer festival', 'Juneteenth', 'Eid-al-Adha','First picnic', 'Art fair', 'Second picnic']}
-    data = {[{ id: '1', name: 'Summer Festival', date: 'June 5, 2023 - June 26, 2023' },
-    { id: '2', name: 'Juneteenth', date: 'June 15, 2023 - June 16, 2023' },
-    { id: '3', name: 'Eid-El-Adha', date: 'June 28, 2023' },
-    { id: '4', name: 'First Picnic', date: 'July 1, 2023' },
-    { id: '5', name: 'Art Fair', date: 'July 20, 2023 - July 22, 2023' },
-    { id: '6', name: 'Second Picnic', date: 'July 29, 2023' }]}
+    data = {[{ id: '1', name: 'Summer Festival', date: 'June 9 - June 26', url:'https://www.a2sf.org/', location:'210 Huronview Blvd, Suite 1, Ann Arbor, MI 48103', location2: '', img:'./assets/events/summerFest.png', description:'This three-week festival beginning in June celebrates the best in theatre,  dance, music, and comedy. Performances cater to audiences of all ages. '   },
+    { id: '2', name: 'Juneteenth symposium', date: 'June 15 - June 16', url:'https://www.eventbrite.com/e/2023-juneteenth-freedom-day-celebration-university-of-michigan-tickets-631752507757',  location:'Michigan League 911 North University Avenue Ann Arbor, MI 48109', location2:'', img:'./assets/events/juneteenth.png', description: 'The University of Michigan will celebrate the 3rd Annual Juneteenth Symposium. The theme of this year’s event is Systems Check: Exploring Structural Solutions to Systemic Racism.' },    
+    { id: '3', name: 'First Picnic', date: 'July 1, 2023', url:'#', location:'location', location2:'', img:'./assets/events/summerFest.png', description: 'description' },    
+    { id: '4', name: 'Second Picnic', date: 'July 29, 2023', location:'location', location2:'', url:'#', img:'./assets/events/summerFest.png', description: 'description' }]}
       renderItem={renderSecondSliderItem}
       sliderWidth={400}
       itemWidth={200}
       layout='default'
       />
+      <View style={styles.resourcesContainer}>
+        <Text style={styles.resourcesText}>Resources</Text>
+        <TouchableOpacity onPress={handleResources}>
+            <View>
+          <Text style={styles.seeAllText}>See All</Text>
+          </View>
+        </TouchableOpacity>
+      </View>
+      <Carousel
+      data = {[
+         {id: '1', name: 'Bus Schedule', url: 'https://www.google.com/', nav: 'BusSchedule'},
+         {id: '5', name: 'University acronyms', url: 'https://www.google.com/', nav: 'UniversityAcronyms'},
+         {id: '2', name: 'Parking Information', url: 'https://www.google.com/', nav: 'Parking' },
+         {id: '3', name: 'Mental Health Resources', url: 'https://www.google.com/', nav: 'MentalHealth' },
+        ]}
+      renderItem={renderFirstSliderItem}
+      sliderWidth={400}
+      itemWidth={200}
+      layout='default'
+      />
+      </View>
+      <View style={styles.itineraryContainer}>
+      <Text style={styles.itineraryHeader}>Program itinerary</Text>
+      <FlatList
+        data={data}
+        renderItem={({ item }) => (
+          <View style={styles.itineraryItemContainer}>
+            <Text style={styles.itineraryTitle}>{item.title}</Text>
+            <Text style={styles.itineraryDate}>{item.subtitle}</Text>
+          </View>
+        )}
+        keyExtractor={(item) => item.id}
+        ItemSeparatorComponent={() => (
+          <View style={styles.itinerarySeparator} />
+        )}
+      />
+    </View>
+      </ScrollView>
       <BottomNavigation navigation={navigation}/>
       
     </View>
@@ -90,13 +159,35 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
+  menuLogoContainer: {
+    marginTop : 120,
+    flexDirection : 'row'
+  },
+  menuIcon:{
+    marginRight: 40,
+    
+  },
+  scrollview : {
+    flex: 1,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
   title: {
     flexDirection : 'row'
   },
+  logo: {
+    
+    width: 242,
+    height: 40,
+  },
+  noClasses: {    
+    marginBottom : 20,
+    fontSize : 16,
+  },
   button: {
     margin : 21,
-    marginTop: 100,
-    backgroundColor: '#0E3880',
+    marginTop: 50,
+    backgroundColor: '#115BFB',
     flexDirection: 'row',
     borderRadius: 45,
     paddingVertical: 10,
@@ -120,14 +211,6 @@ const styles = StyleSheet.create({
   arrowIcon: {
     marginRight : 10
   },
-  flag: {
-    position: 'absolute',
-    width : 39,
-    height : 29,
-    left : -9,
-    top: -20,
-     
-  },
   resourcesContainer: {    
 
     flexDirection: 'row',
@@ -138,25 +221,37 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   eventsContainer: {
-    marginTop: -120,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 20,
     width: '100%',
   },
+  ClassesContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 10,
+    width: '100%',
+  },
   
   resourcesText: {
-    margin: 30,
-    fontSize: 32,
-    fontWeight: 400,
+    margin: 20,
+    fontSize: 20,
+    fontWeight: 700,
     marginRight: 'auto',
   },
   eventsText: {
     marginTop: 0,
-    margin: 30,
-    fontSize: 32,
-    fontWeight: 400,
+    margin: 20,
+    fontSize: 20,
+    fontWeight: 700,
+    marginRight: 'auto',
+  },
+  classesText: {
+    margin: 25,
+    fontSize: 20,
+    fontWeight: 700,
     marginRight: 'auto',
   },
   seeAllText: {
@@ -167,19 +262,21 @@ const styles = StyleSheet.create({
   sliderItemOne: {
     height: 150,
     width: 200,
-    backgroundColor: '#0E3880',
+    backgroundColor: '#115BFB',
     borderRadius: 45,
     padding: 20,
     marginVertical: 10,
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: 40
   },
   sliderItemTwo: {
     height: 150,
     width: 200,
-    backgroundColor: '#0E3880',
+    backgroundColor: '#115BFB',
     borderRadius: 45,
     padding: 20,
+    marginBottom: 40,
     marginVertical: 10,
     alignItems: 'center',
     justifyContent: 'center',
@@ -221,7 +318,29 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: '#0E3880' 
   },
-  footerIcon :{}, 
+  itineraryContainer: {
+    paddingHorizontal: 30,
+    marginBottom: 200
+
+  },
+  itineraryHeader: {
+    fontSize: 20,
+    fontWeight: 700,
+    marginBottom: 10
+  },
+  itineraryItemContainer: {},
+  itineraryTitle: {
+    fontSize: 12
+  },
+  itineraryDate: {
+    color: '#D9D9D9',
+    fontSize: 12
+  },
+  itinerarySeparator: {
+    height: 1,
+    backgroundColor: '#D9D9D9',
+    marginVertical: 8,
+  },
 });
 
 export default HomeScreen;
