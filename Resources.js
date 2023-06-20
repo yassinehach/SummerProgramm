@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, Linking, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, Linking, FlatList, TouchableOpacity, ScrollView } from 'react-native';
 import BottomNavigation from './BottomNavigation';
 import BusSchedule from './Resources/BusSchedule';
 
@@ -33,8 +33,12 @@ const Resources = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      
+      <ScrollView >
+        <View style={styles.scroll}>
       <Image source={require('./assets/logo.png')} style={styles.logo} />
       <Text style={styles.title}>Important resources</Text>
+      
       <View style={styles.resourcesList}>
         <FlatList
           data={resourcesData}
@@ -42,6 +46,8 @@ const Resources = ({navigation}) => {
           keyExtractor={(item) => item.id}
         />
       </View>
+      </View>
+      </ScrollView>
       <BottomNavigation navigation={navigation}/>
     </View>
   );
@@ -50,8 +56,9 @@ const Resources = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    
   },
+  scroll: { alignItems: 'center'},
   logo: {
     marginTop: 40,
     width: 242,
@@ -68,7 +75,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: '90%',
     backgroundColor: '#115BFB',
-    borderRadius: 40
+    borderRadius: 40,
+    marginBottom: 200
   },
   resourceItem: {
     marginTop: 10,

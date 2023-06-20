@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, FlatList, TouchableOpacity, ScrollView } from 'react-native';
 import BottomNavigation from './BottomNavigation';
 
 const Events = ({navigation}) => {
@@ -47,6 +47,8 @@ const Events = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      <ScrollView>
+        <View style={styles.scroll}>
       <Image source={require('./assets/logo.png')} style={styles.logo} />
       <Text style={styles.title}>Upcoming events this summer !</Text>
       <View style={styles.resourcesList}>
@@ -56,6 +58,8 @@ const Events = ({navigation}) => {
           keyExtractor={(item) => item.id}
         />
       </View>
+      </View>
+      </ScrollView>
       <BottomNavigation navigation={navigation}/>
     </View>
   );
@@ -64,7 +68,10 @@ const Events = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    
+  },
+  scroll: {
+    alignItems: 'center'
   },
   logo: {
     marginTop: 10,
@@ -82,7 +89,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: '90%',
     backgroundColor: '#115BFB',
-    borderRadius: 40
+    borderRadius: 40,
+    marginBottom: 185
   },
   resourceItem: {
     marginTop: 10,

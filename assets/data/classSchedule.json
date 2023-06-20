@@ -16,5 +16,11 @@
   "Day": "Monday-Thursday",
   "Time": "12pm-6pm",
   "Location": "Hybrid"
+ },
+ {
+  "Course": "react native",
+  "Day": "Monday-Tuesday",
+  "Time": "10am-4pm",
+  "Location": "Online"
  }
 ]

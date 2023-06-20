@@ -14,7 +14,7 @@ const Announcements = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Logo />
-      
+      <ScrollView>
       <Text style={styles.title}>Important Announcements</Text>
       <View style={styles.squareContainer}>
         <View style={styles.square}>
@@ -30,6 +30,7 @@ const Announcements = ({navigation}) => {
         </View>
         
       </View>
+      </ScrollView>
       
       <BottomNavigation navigation={navigation}/>
     </View>
@@ -62,6 +63,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     flexDirection: 'column',
     alignItems: 'center',
+    marginBottom : 200,
   },
   square: {
     width: 340,

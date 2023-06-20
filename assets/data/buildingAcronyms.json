@@ -38,5 +38,10 @@
   "Acronym": "WEIS",
   "Name": "Weiser Hall",
   "Location": "500 Church St."
+ },
+ {
+  "Acronym": "ABC",
+  "Name": "BUILDING ABC",
+  "Location": "500 Church St."
  }
 ]

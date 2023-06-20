@@ -3,8 +3,21 @@ import { View, FlatList, Text, StyleSheet, TouchableOpacity, Image, ScrollView }
 import { MaterialIcons, Entypo } from '@expo/vector-icons';
 import Carousel from 'react-native-snap-carousel';
 import BottomNavigation from './BottomNavigation';
+import { Dimensions } from 'react-native';
+
 
 const HomeScreen = ({navigation}) => {
+  const windowDimensions = Dimensions.get('window');
+  const screenWidth = windowDimensions.width;
+  const screenHeight = windowDimensions.height;
+  const calculateSpacing = () => {
+  // Define your spacing logic here
+  // Example: Divide the screen width by a factor to get the spacing
+  const spacingFactor = 10;
+  const spacing = screenWidth / spacingFactor;
+  return spacing;
+  };
+  const spacing = calculateSpacing();
     const handleEvents = () => {
         navigation.navigate('Events')
     }
@@ -156,6 +169,8 @@ const HomeScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: '100%',
+    height: '100%',
     justifyContent: 'space-between',
     alignItems: 'center',
   },

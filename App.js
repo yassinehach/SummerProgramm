@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, TouchableOpacity, Image, Text, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, Image, Text, View, ScrollView } from 'react-native';
 import HomeScreen from './Home';
 import SupportScreen from './Support';
 import SearchScreen from './Search';
@@ -145,8 +145,9 @@ const WelcomeScreen = ({navigation}) => {
     navigation.navigate('Home')
   }
   return (
-    <View style={styles.container}>
+    
       <View style={styles.container}>
+        <ScrollView>
       <View style={styles.logoContainer}>
         {/* Add your logo component here */}
         <Image source={require('./assets/logo.png')} style={styles.logo} />
@@ -161,9 +162,9 @@ const WelcomeScreen = ({navigation}) => {
         
       
       <StatusBar style="auto" />
+      </ScrollView>
     </View>
-      <StatusBar style="auto" />
-    </View>
+      
     
   )
   
@@ -171,6 +172,8 @@ const WelcomeScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: '100%',
+    height: '100%',
     backgroundColor: '#fff',
     alignItems: 'center',
   },
@@ -182,7 +185,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: 314,
     height: 52,
-    marginBottom: 40,
+    marginBottom: 10,
   },
   logoContainer: {
     // Add styling for logo container if needed
@@ -199,15 +202,15 @@ const styles = StyleSheet.create({
     margin: 10
   },
   subtitle: {
-    marginTop: 200,
+    marginTop: 175,
     fontSize: 20,
-    marginBottom : 40
+    marginBottom : 20
     
   },
   button: {
     // position : 'absolute',
     // top: 679,
-    marginTop: 240,
+    marginTop: 200,
     backgroundColor: '#115BFB',
     width: 300,
     justifyContent: 'center',
