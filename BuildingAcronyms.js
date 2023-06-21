@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, StyleSheet,TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet,TouchableOpacity, ScrollView } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import BottomNavigation from './BottomNavigation';
 
@@ -67,6 +67,8 @@ const BuildingAcronyms = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      <ScrollView>
+        <View style= {styles.scroll}>
       <Image source={require('./assets/logo.png')} style={styles.logo} />
       <Text style={styles.title}>University Buildings Acronyms</Text>
       <Text style={styles.subtitle}>What buildings are you searching?</Text>
@@ -94,7 +96,8 @@ const BuildingAcronyms = ({navigation}) => {
         <Text style={styles.buttonText}> Next </Text>
         </View>
       </TouchableOpacity>
-      
+      </View>
+      </ScrollView>
       <BottomNavigation navigation={navigation}/>
     </View>
   );
@@ -103,8 +106,12 @@ const BuildingAcronyms = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    
 
+  },
+  scroll: {
+    alignItems: 'center',
+    marginBottom:200
   },
   logo: {
     marginTop: 40,

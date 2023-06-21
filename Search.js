@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Image, Text, Button, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import {Picker} from '@react-native-picker/picker'
 import BottomNavigation from './BottomNavigation';
 
@@ -40,6 +40,9 @@ const SearchScreen = ({navigation}) => {
 
   return (
     <View style={styles.container}>
+      <ScrollView>
+      <View style={styles.scroll}>
+        <Image source={require('./assets/logo.png')} style={styles.logo} />
       <Text style={styles.text}>What class are you enrolled in?</Text>
       <View style={styles.pickerContainer}>
       <Picker
@@ -67,6 +70,8 @@ const SearchScreen = ({navigation}) => {
         <Text style={styles.buttonText}> Next </Text>
         </View>
       </TouchableOpacity>
+      </View>
+      </ScrollView>
       <BottomNavigation navigation={navigation}/>
     </View>
   );
@@ -77,6 +82,15 @@ const styles = StyleSheet.create({
     marginTop : 90,
     flex: 1,
     alignItems: 'center',
+  },
+  logo: {
+    width: 242,
+    height: 40,
+    marginBottom: 60,
+  },
+  scroll: {
+    alignItems: 'center',
+    marginBottom: 200
   },
   text: {
     fontSize: 24,

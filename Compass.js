@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, FlatList, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import BottomNavigation from './BottomNavigation';
 
@@ -35,6 +35,8 @@ const CompassScreen = ({navigation}) => {
   )};
   return (
     <View style={styles.container}>
+      <ScrollView>
+        <View style = {styles.scroll}>
       <Image source={require('./assets/logo.png')} style={styles.logo} />
       <View style={styles.listContainer}>
       <FlatList
@@ -43,6 +45,8 @@ const CompassScreen = ({navigation}) => {
         keyExtractor={(item) => item.id}
       />
       </View>
+      </View>
+      </ScrollView>
       <BottomNavigation navigation={navigation}/>
     </View>
   );
@@ -51,7 +55,12 @@ const CompassScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    
+  },
+  scroll: {
     alignItems: 'center',
+    marginBottom: 200
+
   },
   logo: {
     marginTop: 40,

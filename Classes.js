@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import BottomNavigation from './BottomNavigation';
 
 const Classes = ({navigation}) => {
@@ -8,13 +8,18 @@ const Classes = ({navigation}) => {
     }
   return (
     <View style={styles.container}>
+      <ScrollView>
+        <View style={styles.scroll}>
       <Image source={require('./assets/logo.png')} style={styles.logo} />
+      
       <Text style={styles.title}>Class Schedule</Text>
       <Image source={require('./assets/Class.png')} style={styles.image} resizeMode="contain" />
       <Text style={styles.text}>You are not registered for classes {'\n'} in the summer term.</Text>
       <TouchableOpacity style={styles.button} onPress={handleButtonPress}>
         <Text style={styles.buttonText}>Search for{'\n'}Classes</Text>
       </TouchableOpacity>
+      </View>
+      </ScrollView>
       <BottomNavigation navigation={navigation}/>
     </View>
   );
@@ -25,6 +30,10 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center'
     
+  },
+  scroll: {
+    alignItems: 'center',
+    marginBottom: 200
   },
   logo: {
     alignSelf: 'center',
