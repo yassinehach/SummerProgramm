@@ -56,13 +56,15 @@ const styles = StyleSheet.create({
   footer: {
     flexDirection : 'row',
     justifyContent : 'space-between',
-    paddingHorizontal : 30,
+    paddingHorizontal : '9%',
     alignItems: 'center',
     bottom : 0,
     borderRadius : 0,
     width: '100%',
-    backgroundColor: '#020BA9' 
+    backgroundColor: '#020BA9',
+    
   },
+
 });
 
 export default BottomNavigation;

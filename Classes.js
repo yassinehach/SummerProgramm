@@ -33,20 +33,20 @@ const styles = StyleSheet.create({
   },
   scroll: {
     alignItems: 'center',
-    marginBottom: 200
+    marginBottom: '50%'
   },
   logo: {
     alignSelf: 'center',
-    marginTop: 40,
-    width: 242,
-    height: 40,
-    marginBottom: 20,
+    marginTop: '10%',
+    width: '60%',
+    height: '7%',
+    marginBottom: '5%',
   
   },
   
   title: {
-    paddingRight: 150,
-    marginTop: 30,
+    paddingRight: '30%',
+    marginTop: '7%',
     fontSize: 24,
     fontWeight: '700',
     marginBottom : -40,
@@ -61,18 +61,18 @@ const styles = StyleSheet.create({
     marginTop: -50,
     fontSize: 16,    
     fontWeight: 400,
-    paddingRight: 60,
+    paddingRight: '15%',
 
   },
   button: {
     alignSelf : 'flex-end',
-    width : 200,
+    width : '40%',
     backgroundColor: '#115BFB',
     borderRadius: 20,
-    marginRight: 25,
-    marginTop: 50,
-    paddingVertical: 18,
-    paddingHorizontal: 20,
+    marginRight: '8%',
+    marginTop: '12%',
+    paddingVertical: '5%',
+    paddingHorizontal: '5%',
   },
   buttonText: {
     color: 'white',

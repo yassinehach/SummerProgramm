@@ -83,7 +83,7 @@ const BuildingAcronyms = ({navigation}) => {
         {data2.map((item) => (
           <Picker.Item
             key={item.acronym}
-            label={item.Name}
+            label={item.Acronym}
             value={item.Acronym}
             style = {styles.pickerItem}
             
