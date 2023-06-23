@@ -27,7 +27,7 @@ const SummerFest = ({route, navigation}) => {
     }
   return (
     <View style={styles.container}>
-      <ScrollView>
+      <ScrollView style= { styles.scroll}>
       <Image source={require('./assets/logo.png')} style={styles.logo} />
       <Text style={styles.title}>Upcoming Events This Summer!</Text>
       <View style={styles.imageContainer} >
@@ -64,7 +64,7 @@ const SummerFest = ({route, navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: '2%'
+    
   },
   logo: {
     alignSelf: 'center',
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    paddingHorizontal: '4%',
+    paddingHorizontal: '7%',
     fontWeight: 'bold',
     marginTop: '5%',
     marginBottom: '7%',
@@ -93,14 +93,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginTop: '7%',
     color: "#313131",
-    paddingHorizontal: '3%',
+    paddingHorizontal: '7%',
   },
   eventDate: {
     fontSize: 26,
     fontWeight: 'bold',
     marginTop: '3%',
     color: "#313131",
-    paddingHorizontal: '3%'
+    paddingHorizontal: '7%'
   },
   imageContainer: {
     borderRadius: 45
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: 400,
     marginTop: '3%',
-    paddingHorizontal: '3%',
+    paddingHorizontal: '7%',
     color: '#313131'
   },
   locationContainer: {
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
   },
   vector: {
     marginTop: '1%',
-    marginLeft : '3%',
+    marginLeft : '7%',
   },
   locationText: {
     fontSize: 14,
