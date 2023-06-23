@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
 import BottomNavigation from './BottomNavigation';
+import * as Font from 'expo-font'
 
 const Logo = () => (
   <View style={styles.logoContainer}>
@@ -11,6 +12,16 @@ const Logo = () => (
 
 
 const Announcements = ({navigation}) => {
+  const loadFonts = async () => {
+  await Font.loadAsync({
+    'AHBold': require('./fonts/AtkinsonHyperlegible-Bold.ttf'),
+    'AHBoldItalic': require('./fonts/AtkinsonHyperlegible-BoldItalic.ttf'),
+    'AHItalic': require('./fonts/AtkinsonHyperlegible-Italic.ttf'),
+    'AHRegular': require('./fonts/AtkinsonHyperlegible-Regular.ttf'),
+  });}
+  useEffect(() => {
+    loadFonts();
+  }, []);
   return (
     <View style={styles.container}>
       <Logo />
@@ -47,7 +58,7 @@ const styles = StyleSheet.create({
   title: {
     paddingHorizontal: '5%',
     fontSize: 24,
-    fontWeight: 700
+    fontFamily: 'AHBold'
   },
   logoContainer: {
     width: '100%',
@@ -80,14 +91,14 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 24,
     paddingVertical: '5%',
-    fontWeight: '400',
+    fontFamily: 'AHRegular',
     textAlign: 'center',
   },
   squareTextSmall: {
     color: 'white',
     fontSize: 14,
     textAlign: 'center',
-    fontWeight: 400,
+    fontFamily: 'AHRegular',
     paddingVertical: '2%',
     marginBottom: '7%'
 }

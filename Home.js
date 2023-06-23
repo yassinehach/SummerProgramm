@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { View, FlatList, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
 import { MaterialIcons, Entypo } from '@expo/vector-icons';
 import Carousel from 'react-native-snap-carousel';
 import BottomNavigation from './BottomNavigation';
 import { Dimensions } from 'react-native';
+import * as Font from 'expo-font';
 
 
 const HomeScreen = ({navigation}) => {
@@ -17,6 +18,16 @@ const HomeScreen = ({navigation}) => {
   const spacing = screenWidth / spacingFactor;
   return spacing;
   };
+  const loadFonts = async () => {
+  await Font.loadAsync({
+    'AHBold': require('./fonts/AtkinsonHyperlegible-Bold.ttf'),
+    'AHBoldItalic': require('./fonts/AtkinsonHyperlegible-BoldItalic.ttf'),
+    'AHItalic': require('./fonts/AtkinsonHyperlegible-Italic.ttf'),
+    'AHRegular': require('./fonts/AtkinsonHyperlegible-Regular.ttf'),
+  });}
+  useEffect(() => {
+    loadFonts();
+  }, []);
   const spacing = calculateSpacing();
     const handleEvents = () => {
         navigation.navigate('Events')
@@ -188,6 +199,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
+    fontFamily: 'AHRegular',
     flexDirection : 'row'
   },
   logo: {
@@ -218,8 +230,8 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontSize: 16,
-    fontWeight: 'bold',
     flex: 1,
+    fontFamily: 'AHRegular',
     textAlign: 'left',
     marginLeft: '5%'
   },
@@ -252,26 +264,26 @@ const styles = StyleSheet.create({
   resourcesText: {
     margin: '5%',
     fontSize: 20,
-    fontWeight: 700,
+    fontFamily: 'AHBold',
     marginRight: 'auto',
   },
   eventsText: {
     marginTop: 0,
     margin: '5%',
     fontSize: 20,
-    fontWeight: 700,
+    fontFamily: 'AHBold',
     marginRight: 'auto',
   },
   classesText: {
     margin: '5%',
     fontSize: 20,
-    fontWeight: 700,
+    fontFamily: 'AHBold',
     marginRight: 'auto',
   },
   seeAllText: {
     color: 'blue',
     fontSize: 16,
-    fontWeight: 400,
+    fontFamily: 'AHItalic'
   },
   sliderItemOne: {
     height: 150,
@@ -299,7 +311,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 24,
     textAlign: 'center',
-    fontWeight: 'bold',
+    fontFamily: 'AHBold'
   },
   dateContainer: {
     position: 'absolute',
@@ -318,8 +330,8 @@ const styles = StyleSheet.create({
   dateText: {
     textAlign: 'center',
     fontSize: 16,
-    fontWeight: 'bold',
-    color: '#0E3880',
+    fontFamily: 'AHRegular',
+  
   },
   footer: {
     flexDirection : 'row',
@@ -339,16 +351,18 @@ const styles = StyleSheet.create({
   },
   itineraryHeader: {
     fontSize: 20,
-    fontWeight: 700,
+    fontFamily:'AHBold',
     marginBottom: '3%'
   },
   itineraryItemContainer: {},
   itineraryTitle: {
-    fontSize: 12
+    fontSize: 12,
+    fontFamily: 'AHRegular'
   },
   itineraryDate: {
     color: '#D9D9D9',
-    fontSize: 12
+    fontSize: 12,
+    fontFamily: 'AHRegular'
   },
   itinerarySeparator: {
     height: 1,

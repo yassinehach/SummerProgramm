@@ -2,12 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, Image, StyleSheet,TouchableOpacity, ScrollView } from 'react-native';
 import { Picker } from '@react-native-picker/picker';
 import BottomNavigation from './BottomNavigation';
+import * as Font from 'expo-font'
 
 // import { fetchData } from './DataService';
 
 
 
 const BuildingAcronyms = ({navigation}) => {
+  const loadFonts = async () => {
+  await Font.loadAsync({
+    'AHBold': require('./fonts/AtkinsonHyperlegible-Bold.ttf'),
+    'AHBoldItalic': require('./fonts/AtkinsonHyperlegible-BoldItalic.ttf'),
+    'AHItalic': require('./fonts/AtkinsonHyperlegible-Italic.ttf'),
+    'AHRegular': require('./fonts/AtkinsonHyperlegible-Regular.ttf'),
+  });}
+  useEffect(() => {
+    loadFonts();
+  }, []);
   const data = [
     { id: 1, acronym: 'ABC', name: 'Building ABC', location: 'Location 1' },
     { id: 2, acronym: 'DEF', name: 'Building DEF', location: 'Location 2' },
@@ -115,7 +126,7 @@ const styles = StyleSheet.create({
   },
   scroll: {
     alignItems: 'center',
-    marginBottom:200
+    marginBottom:'70%'
   },
   logo: {
     marginTop: '10%',
@@ -125,7 +136,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontWeight: 700,
+    fontFamily: 'AHBold',
     alignSelf: 'flex-start',
     paddingHorizontal: '10%',
     marginBottom: '7%',
@@ -133,7 +144,7 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 16,
     marginBottom: '5%',
-    fontWeight: 400,
+    fontFamily: 'AHRegular',
     paddingHorizontal: '10%',
     alignSelf: 'flex-start' 
   },
