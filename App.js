@@ -156,6 +156,7 @@ const WelcomeScreen = ({navigation}) => {
         {/* <Text style={styles.title}>WELCOME</Text> */}
         <Text style={styles.subtitle}>2023 ICPSR Summer Program</Text>
       </View>
+      
         <TouchableOpacity style={styles.button} onPress={handleContinue}>
           <Text style={styles.buttonText}>Continue</Text>
         </TouchableOpacity>
@@ -182,14 +183,14 @@ const styles = StyleSheet.create({
   },
   logo: {
     
-    marginTop: 10,
-    width: 314,
-    height: 52,
-    marginBottom: 10,
+    marginTop: '2%',
+    width: '100%',
+    height: '30%',
+    marginBottom: '5%',
   },
   logoContainer: {
     // Add styling for logo container if needed
-    marginTop: 100
+    marginTop: "50%"
     
     
   },
@@ -199,25 +200,27 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 64,
     fontWeight: 400,
-    margin: 10
+    margin: '5%'
   },
   subtitle: {
-    marginTop: 175,
+    marginTop: '25%',
     fontSize: 20,
-    marginBottom : 20
+    marginBottom : '30%'
     
   },
   button: {
     // position : 'absolute',
     // top: 679,
-    marginTop: 200,
+    marginTop: '30%',
     backgroundColor: '#115BFB',
-    width: 300,
+    alignSelf: 'center',
+    width: '95%',
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 45,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingVertical: '4%',
+    paddingHorizontal: '5%',
+    marginBottom: '15%'
      
   },
   buttonText: {

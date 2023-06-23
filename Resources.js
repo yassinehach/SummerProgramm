@@ -60,31 +60,32 @@ const styles = StyleSheet.create({
   },
   scroll: { alignItems: 'center'},
   logo: {
-    marginTop: 40,
-    width: 242,
-    height: 40,
-    marginBottom: 60,
+    marginTop: '10%',
+    width: '65%',
+    height: '5%',
+    marginBottom: '12%',
   },
   title: {
     fontSize: 24,
     fontWeight: '800',
-    marginBottom: 30,
-    paddingRight: 90
+    marginBottom: '8%',
+    alignSelf: 'flex-start',
+    paddingHorizontal: '10%'
   },
   resourcesList: {
-    marginTop: 10,
+    marginTop: '3%',
     width: '90%',
     backgroundColor: '#115BFB',
     borderRadius: 40,
-    marginBottom: 200
+    marginBottom: '70%'
   },
   resourceItem: {
-    marginTop: 10,
+    marginTop: '3%',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 20,
-    paddingHorizontal: 20,
-    paddingVertical: 5,
+    marginBottom: '6%',
+    paddingHorizontal: '5%',
+    paddingVertical: '1.5%',
   },
   resourceName: {
     color: 'white',

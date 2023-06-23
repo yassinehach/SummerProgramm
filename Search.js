@@ -79,18 +79,18 @@ const SearchScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop : 90,
+    marginTop : '12%',
     flex: 1,
     alignItems: 'center',
   },
   logo: {
-    width: 242,
-    height: 40,
-    marginBottom: 60,
+    width: '65%',
+    height: '15%',
+    marginBottom: '20%',
   },
   scroll: {
     alignItems: 'center',
-    marginBottom: 200
+    marginBottom: '50%'
   },
   text: {
     fontSize: 24,
@@ -99,11 +99,13 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: '10%',
   },
   nextButton : {
-    width: 175,
+    width: '100%',
     alignItems : 'center',
+    paddingHorizontal: '18%',
+    paddingVertical: '1%',
     borderRadius : 20,
     backgroundColor : 'white',
     elevation: 4,
@@ -121,12 +123,13 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#2F65A780',
     borderRadius: 20,
-    marginBottom: 20,
+    width: '90%',
+    marginBottom: '5%',
 
     
   },
   picker: { 
-    width: 350,
+    width: '100%',
   },
 });
 

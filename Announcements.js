@@ -45,39 +45,41 @@ const styles = StyleSheet.create({
 
   },
   title: {
+    paddingHorizontal: '5%',
     fontSize: 24,
     fontWeight: 700
   },
   logoContainer: {
-    marginTop: 30,
+    width: '100%',
+    marginTop: '7%',
     alignItems: 'center',
   },
   logo: {
 
-    width: 242,
-    height: 40,
+    width: '70%',
     alignSelf : 'center',
-    marginBottom: 40,
+    marginBottom: '10%',
   },
   squareContainer: {
-    marginTop: 20,
+    marginTop: "10%",
     flexDirection: 'column',
     alignItems: 'center',
-    marginBottom : 200,
+    marginBottom : '0%',
   },
   square: {
-    width: 340,
-    padding: 10,
-    height: 150,
+    width: '95%',
+    padding: '4%',
+    
     backgroundColor: '#115BFB',
     borderRadius: 45,
-    marginBottom: 20,
+    marginBottom: '8%',
     justifyContent: 'center',
     alignItems: 'center',
   },
   squareText: {
     color: 'white',
     fontSize: 24,
+    paddingVertical: '5%',
     fontWeight: '400',
     textAlign: 'center',
   },
@@ -86,8 +88,8 @@ const styles = StyleSheet.create({
     fontSize: 14,
     textAlign: 'center',
     fontWeight: 400,
-    padding: 10,
-    marginBottom: 20
+    paddingVertical: '2%',
+    marginBottom: '7%'
 }
 });
 

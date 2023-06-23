@@ -64,56 +64,58 @@ const SummerFest = ({route, navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10
+    padding: '2%'
   },
   logo: {
     alignSelf: 'center',
-    marginTop: 10,
-    width: 242,
-    height: 40,
-    marginBottom: 30,
+    marginTop: '3%',
+    width: '70%',
+    height: '5%',
+    marginBottom: '8%',
   },
   title: {
     fontSize: 24,
-    paddingHorizontal: 10,
+    paddingHorizontal: '4%',
     fontWeight: 'bold',
-    marginTop: 20,
-    marginBottom: 20,
+    marginTop: '5%',
+    marginBottom: '7%',
     color: "#313131"
   },
   eventImage: {
     width: '100%',
     height: 200,
     resizeMode: 'cover',
-    marginTop: 20,
+    marginTop: '6%',
     borderRadius: 20
   },
   eventName: {
     fontSize: 26,
     fontWeight: 'bold',
-    marginTop: 20,
+    marginTop: '7%',
     color: "#313131",
-    paddingHorizontal: 10,
+    paddingHorizontal: '3%',
   },
   eventDate: {
     fontSize: 26,
     fontWeight: 'bold',
-    marginTop: 10,
+    marginTop: '3%',
     color: "#313131",
-    paddingHorizontal: 10
+    paddingHorizontal: '3%'
   },
   imageContainer: {
     borderRadius: 45
   },
   registerButton: {
-    paddingVertical: 20,    
-    width: 200,
+    alignSelf: 'flex-end',
+    paddingVertical: '5%',
+    paddingHorizontal: '10%',    
+    width: '50%',
     backgroundColor: "#115BFB",
     borderRadius: 45,
     justifyContent: 'center',
-    marginLeft: 170,
-    marginTop: 50,
-    marginBottom: 120   
+    marginRight: '4%',
+    marginTop: '12%',
+    marginBottom: '60%'   
 },
   buttonText: {
     fontWeight: '600',
@@ -124,28 +126,28 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 16,
     fontWeight: 400,
-    marginTop: 10,
-    paddingHorizontal: 10,
+    marginTop: '3%',
+    paddingHorizontal: '3%',
     color: '#313131'
   },
   locationContainer: {
-    paddingVertical: 20,
+    paddingVertical: '6%',
     flexDirection : 'row'
 
   },
   location2Container: {
-    paddingBottom: 20,
+    paddingBottom: '6%',
     flexDirection : 'row'
   },
   vector: {
-    marginTop: 3,
-    marginLeft : 10,
+    marginTop: '1%',
+    marginLeft : '3%',
   },
   locationText: {
     fontSize: 14,
     fontWeight: 600,
     color: '#313131',
-    paddingHorizontal : 10
+    paddingHorizontal : '3%'
 
   },
 });

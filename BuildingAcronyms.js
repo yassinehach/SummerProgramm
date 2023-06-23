@@ -79,6 +79,7 @@ const BuildingAcronyms = ({navigation}) => {
         onValueChange={(value) => setSelectedBuilding(value)}
         mode='dropdown'
       >
+        
         <Picker.Item label="Select a building..." value="" />
         {data2.map((item) => (
           <Picker.Item
@@ -88,7 +89,10 @@ const BuildingAcronyms = ({navigation}) => {
             style = {styles.pickerItem}
             
           />
-        ))}
+          
+        ))
+        }
+        
       </Picker>
       </View>
       <TouchableOpacity onPress={handleNextPress}>
@@ -114,48 +118,53 @@ const styles = StyleSheet.create({
     marginBottom:200
   },
   logo: {
-    marginTop: 40,
-    width: 242,
-    height: 40,
-    marginBottom: 60,
+    marginTop: '10%',
+    width: '68%',
+    height: '10%',
+    marginBottom: '15%',
   },
   title: {
     fontSize: 24,
     fontWeight: 700,
     alignSelf: 'flex-start',
-    paddingHorizontal: 40,
-    marginBottom: 30,
+    paddingHorizontal: '10%',
+    marginBottom: '7%',
   },
   subtitle: {
     fontSize: 16,
-    marginBottom: 20,
+    marginBottom: '5%',
     fontWeight: 400,
-    paddingHorizontal: 40,
+    paddingHorizontal: '10%',
     alignSelf: 'flex-start' 
   },
   pickerContainer: {
     borderWidth: 2,
+    width: '90%',
     borderColor: '#2F65A780',
     borderRadius: 20,
-    marginBottom: 20,    
+    marginBottom: '5%',    
   },
   picker : {
-    width: 300
+    width: '100%'
+  },
+  pickerItemContainer: {
   },
   pickerItem: {
     borderRadius : 20,
   },
   nextButton : {
-    width: 175,
+    width: '100%',
     alignItems : 'center',
     borderRadius : 20,
     backgroundColor : 'white',
+    paddingHorizontal: '15%',
+    paddingVertical: '1%',
     elevation: 4,
     shadowColor: 'black',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.5,
     shadowRadius: 3,
-    marginTop: 20
+    marginTop: '5%'
   },
   buttonText:{
     color : '#00274C',

@@ -175,11 +175,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   menuLogoContainer: {
-    marginTop : 120,
+    marginTop : '20%',
     flexDirection : 'row'
   },
   menuIcon:{
-    marginRight: 40,
+    marginRight: '10%',
     
   },
   scrollview : {
@@ -192,27 +192,27 @@ const styles = StyleSheet.create({
   },
   logo: {
     
-    width: 242,
-    height: 40,
+    width: '60%',
+    height: '90%'
   },
   noClasses: {    
-    marginBottom : 20,
+    marginBottom : '5%',
     fontSize : 16,
   },
   button: {
-    margin : 21,
-    marginTop: 50,
+    margin : '7%',
+    marginTop: '12%',
     backgroundColor: '#115BFB',
     flexDirection: 'row',
     borderRadius: 45,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingVertical: '3%',
+    paddingHorizontal: '5%',
     alignItems: 'center',
   },
   icon: {
-    marginRight: 10,
-    width: 39,
-    height: 26
+    marginRight: '3%',
+    width: '10%',
+    height: '90%'
   },
   
   buttonText: {
@@ -221,50 +221,49 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     flex: 1,
     textAlign: 'left',
-    marginLeft: 10
+    marginLeft: '5%'
   },
   arrowIcon: {
-    marginRight : 10
+    marginRight : '3%'
   },
   resourcesContainer: {    
 
     flexDirection: 'row',
-    marginTop: 0,
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 20,
+    paddingHorizontal: '5%',
     width: '100%',
   },
   eventsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 20,
+    paddingHorizontal: '5%',
     width: '100%',
   },
   ClassesContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 10,
+    paddingHorizontal: '4%',
     width: '100%',
   },
   
   resourcesText: {
-    margin: 20,
+    margin: '5%',
     fontSize: 20,
     fontWeight: 700,
     marginRight: 'auto',
   },
   eventsText: {
     marginTop: 0,
-    margin: 20,
+    margin: '5%',
     fontSize: 20,
     fontWeight: 700,
     marginRight: 'auto',
   },
   classesText: {
-    margin: 25,
+    margin: '5%',
     fontSize: 20,
     fontWeight: 700,
     marginRight: 'auto',
@@ -308,7 +307,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 45,
     padding: 5,
-    marginBottom: 10,
+    marginBottom: '5%',
     width: 175,
     elevation: 3,
     shadowColor: 'black',
@@ -325,7 +324,7 @@ const styles = StyleSheet.create({
   footer: {
     flexDirection : 'row',
     justifyContent : 'space-between',
-    paddingHorizontal : 10,
+    paddingHorizontal : '5%',
     alignItems: 'center',
     position : 'absolute',
     bottom : 0,
@@ -334,14 +333,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#0E3880' 
   },
   itineraryContainer: {
-    paddingHorizontal: 30,
-    marginBottom: 200
+    paddingHorizontal: '8%',
+    marginBottom: '50%'
 
   },
   itineraryHeader: {
     fontSize: 20,
     fontWeight: 700,
-    marginBottom: 10
+    marginBottom: '3%'
   },
   itineraryItemContainer: {},
   itineraryTitle: {
@@ -354,7 +353,7 @@ const styles = StyleSheet.create({
   itinerarySeparator: {
     height: 1,
     backgroundColor: '#D9D9D9',
-    marginVertical: 8,
+    marginVertical: '3%',
   },
 });
 

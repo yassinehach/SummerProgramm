@@ -27,18 +27,19 @@ const styles = StyleSheet.create({
   },
   logo: {
 
-    marginTop: 30,
-    width: 242,
-    height: 40,
-    marginBottom: 60,
+    marginTop: '8%',
+    width: '70%',
+    height: '7%',
+    
+    marginBottom: '15%',
   },
   heading: {
     alignSelf: 'flex-start',
-    paddingHorizontal: 30,
+    paddingHorizontal: '10%',
     color: '#313131',
     fontSize: 24,
     fontWeight: 700,
-    marginBottom: 30,
+    marginBottom: '8%',
     
   },
   boldText: {
@@ -46,13 +47,13 @@ const styles = StyleSheet.create({
     
     fontWeight: 400,
     fontSize: 16,
-    paddingHorizontal: 30,
-    marginBottom: 20,
+    paddingHorizontal: '10%',
+    marginBottom: '7%',
   },
   normalText: {
     alignSelf: 'flex-start',
-    paddingHorizontal: 30,
-    marginBottom: 5,
+    paddingHorizontal: '10%',
+    marginBottom: '1%',
   },
 });
 

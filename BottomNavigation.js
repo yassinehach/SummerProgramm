@@ -44,6 +44,8 @@ const BottomNavigation = ({navigation}) => {
 const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
+    marginRight: '3.5%',
+    
     position: 'absolute',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -58,8 +60,9 @@ const styles = StyleSheet.create({
     justifyContent : 'space-between',
     paddingHorizontal : '9%',
     alignItems: 'center',
-    bottom : 0,
-    borderRadius : 0,
+    
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25,
     width: '100%',
     backgroundColor: '#020BA9',
     

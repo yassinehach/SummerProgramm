@@ -74,30 +74,31 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   logo: {
-    marginTop: 10,
-    width: 242,
-    height: 40,
-    marginBottom: 40,
+    marginTop: '5%',
+    width: '65%',
+    height: '5%',
+    marginBottom: '10%',
   },
   title: {
     fontSize: 24,
     fontWeight: '800',
-    marginBottom: 10,
-    paddingRight: 90
+    marginBottom: '5%',
+    alignSelf: 'flex-start',
+    paddingHorizontal: '10%'
   },
   resourcesList: {
-    marginTop: 10,
+    marginTop: '3%',
     width: '90%',
     backgroundColor: '#115BFB',
     borderRadius: 40,
-    marginBottom: 185
+    marginBottom: '70%'
   },
   resourceItem: {
-    marginTop: 10,
+    marginTop: '3%',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 17,
-    paddingHorizontal: 20,
+    marginBottom: '4%',
+    paddingHorizontal: '6%',
   },
   resourceName: {
     color: 'white',

@@ -30,48 +30,48 @@ const styles = StyleSheet.create({
     
   },
   bullet: {
-    marginRight: 8,
+    marginRight: '1%',
     fontSize: 12,
     lineHeight: 16,
-    paddingLeft: 30
+    paddingLeft: '10%'
   },
   underline: {
     borderBottomWidth: 1,
     borderBottomColor: 'black',
   },
   logo: {
-    marginTop: 20,
-    width: 242,
-    height: 40,
+    marginTop: '5%',
+    width: '65%',
+    height: '7%',
     alignSelf : 'center',
-    marginBottom: 60,
+    marginBottom: '15%',
   },
   text: {
     textAlign : 'left',
-    paddingLeft : 30,
+    paddingLeft : '10%',
     fontSize: 24,
     fontWeight: 800,
-    marginBottom : 10,
+    marginBottom : '3%',
   },
   textEm: {
-    marginTop : 40,
+    marginTop : '10%',
     textAlign : 'left',
-    paddingLeft : 30,
+    paddingLeft : '10%',
     fontSize: 24,
     fontWeight: 800,
-    marginBottom : 10,
+    marginBottom : '3%',
   },
   underlined : {textDecorationLine: 'underline'},
   texthere: {
     textAlign : 'left',
-    paddingLeft : 30,
+    paddingLeft : '10%',
     fontSize: 16,
     fontWeight: 400,
   },
   seperator: {
     borderBottomWidth: 1,
-    marginTop: 10,
-    marginBottom: 10,
+    marginTop: '3%',
+    marginBottom: '3%',
     width : '85%',
     alignSelf : 'center',
     borderBottomColor: '#D9D9D9',
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     color: '#D9D9D9',
     fontSize: 16,
     fontWeight: 400,
-    paddingLeft: 40
+    paddingLeft: '12%'
   }
 });
 
