@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useEffect } from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, TouchableOpacity, Image, Text, View, ScrollView } from 'react-native';
@@ -21,6 +22,7 @@ import UniversityAcronyms from './Resources/UniversityAcronyms';
 import BuildingAcronyms from './BuildingAcronyms';
 import BuildingDetails from './BuildingDetail';
 import CourseDetails from './CourseDetails';
+import * as Font from 'expo-font';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
@@ -144,6 +146,17 @@ const WelcomeScreen = ({navigation}) => {
   const handleContinue = () => {
     navigation.navigate('Home')
   }
+  const loadFonts = async () => {
+  await Font.loadAsync({
+    'AHBold': require('./fonts/AtkinsonHyperlegible-Bold.ttf'),
+    'AHBoldItalic': require('./fonts/AtkinsonHyperlegible-BoldItalic.ttf'),
+    'AHItalic': require('./fonts/AtkinsonHyperlegible-Italic.ttf'),
+    'AHRegular': require('./fonts/AtkinsonHyperlegible-Regular.ttf'),
+  });
+};
+useEffect(() => {
+    loadFonts();
+  }, []);
   return (
     
       <View style={styles.container}>
@@ -205,7 +218,8 @@ const styles = StyleSheet.create({
   subtitle: {
     marginTop: '25%',
     fontSize: 20,
-    marginBottom : '30%'
+    marginBottom : '30%',
+    fontFamily: 'AHItalic'
     
   },
   button: {
@@ -226,6 +240,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontSize: 32,
+    fontFamily: 'AHRegular'
     
     
   },
