@@ -1,26 +1,34 @@
-import React from 'react';
-import { View, Text, Image, FlatList, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import React, {useEffect} from 'react';
+import { View, Text, Image, FlatList, Linking, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import BottomNavigation from './BottomNavigation';
+import * as Font from 'expo-font'
 
 const CompassScreen = ({navigation}) => {
     
     const data = [
-    { id: '1', text: 'Reflection Rooms on Campus' },
-    { id: '2', text: 'Accessible Bathrooms on Campus' },
-    { id: '3', text: 'Gender-inclusive restrooms' },
-    { id: '4', text: 'Lactation room on campus' },
-    { id: '5', text: 'Child care resources' },
-    { id: '6', text: 'Off-campus child care' },
-    { id: '7', text: 'LGBTQ resources' },
-    { id: '8', text: 'Others' },
+    { id: '1', text: 'Reflection Rooms on Campus', url: 'https://trotter.umich.edu/article/reflection-rooms-campus' },
+    { id: '2', text: 'Accessible Bathrooms on Campus', url: 'https://ssd.umich.edu/resources' },
+    { id: '3', text: 'Gender-inclusive restrooms', url: 'https://lsa.umich.edu/slc/about-us/gender-inclusive-restrooms.html' },
+    { id: '4', text: 'Lactation room on campus', url: 'https://hr.umich.edu/benefits-wellness/work-life/lactation-resources/lactation-room-locations-across-campus-michigan-medicine' },
+    { id: '5', text: 'Child care resources', url: 'https://hr.umich.edu/benefits-wellness/work-life/child-care-resources' },
+    { id: '6', text: 'Off-campus child care', url: 'https://hr.umich.edu/benefits-wellness/work-life/child-care-resources' },
+    { id: '7', text: 'LGBTQ resources', url: 'https://studentlife.umich.edu/article/lgbtq-student-groups-u-m' },
+    { id: '8', text: 'Others', url: '#' },
   ];
+  const loadFonts = async () => {
+  await Font.loadAsync({
+    'AHBold': require('./fonts/AtkinsonHyperlegible-Bold.ttf'),
+    'AHBoldItalic': require('./fonts/AtkinsonHyperlegible-BoldItalic.ttf'),
+    'AHItalic': require('./fonts/AtkinsonHyperlegible-Italic.ttf'),
+    'AHRegular': require('./fonts/AtkinsonHyperlegible-Regular.ttf'),
+  });}
+  useEffect(() => {
+    loadFonts();
+  }, []);
   const renderItem = ({ item }) => {
     const handleArrow = () => {
-        const data= {
-            text : item.text
-        }
-        navigation.navigate('Acronyms', {data})
+        Linking.openURL(item.url)
     }
     return(
     <View>
@@ -80,6 +88,7 @@ const styles = StyleSheet.create({
   },
   itemText: {
     fontSize: 16,
+    fontFamily: 'AHRegular'
   },
   separator: {
     height: 1,

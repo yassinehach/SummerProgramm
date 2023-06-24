@@ -31,7 +31,8 @@ const SearchScreen = ({navigation}) => {
         course: selectedItem.Course,
         day: selectedItem.Day,
         location: selectedItem.Location,
-        time: selectedItem.Time
+        time: selectedItem.Time,
+        instructor: selectedItem.Instructor
       });
     }
     // Handle the "Next" button press
@@ -84,8 +85,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logo: {
-    width: '65%',
-    height: '15%',
+    width: 260 ,
+    height: 50,
     marginBottom: '20%',
   },
   scroll: {

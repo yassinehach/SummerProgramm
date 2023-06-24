@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Linking } from 'react-native';
 import BottomNavigation from './BottomNavigation';
 import * as Font from 'expo-font'
 
@@ -22,24 +22,36 @@ const Announcements = ({navigation}) => {
   useEffect(() => {
     loadFonts();
   }, []);
+  const handleLinkPress = () => {
+    Linking.openURL('https://gettextbookumich')
+  }
   return (
     <View style={styles.container}>
       <Logo />
       <ScrollView>
+        <View style= {styles.scroll}>
       <Text style={styles.title}>Important Announcements</Text>
       <View style={styles.squareContainer}>
         <View style={styles.square}>
             <Text style={styles.squareText}>Welcome to ICPSR summer program</Text>
         </View>
         <View style={styles.square}>
-            <Text style={styles.squareText}>First day of class</Text>
-            <Text style={styles.squareTextSmall}> Have a great first day!!</Text>
+            <Text style={styles.squareText}>Preparation</Text>
+            
         </View>
         <View style={styles.square}>
+            <Text style={styles.squareText}>3-Week Courses Second Session starts today!</Text>
+            <Text style={styles.squareTextSmall}> Have a great first day!!</Text>
+        </View>
+
+        <View style={styles.square}>
             <Text style={styles.squareText}>Purchasing textbooks</Text>
-            <Text style={styles.squareTextSmall}> If you still need a required textbook please follow the instructions in the link provided: https://gettextbookumich</Text>
+            <TouchableOpacity onPress={handleLinkPress}>
+            <Text style={styles.squareTextSmall}> If you still need a required textbook please follow the instructions:</Text>
+            </TouchableOpacity>
         </View>
         
+      </View>
       </View>
       </ScrollView>
       
@@ -55,10 +67,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
 
   },
+  scroll :{
+    marginBottom: '30%'
+  },
   title: {
-    paddingHorizontal: '5%',
+    paddingHorizontal: '4%',
     fontSize: 24,
-    fontFamily: 'AHBold'
+    fontFamily: 'AHBold',
+    alignSelf: 'center'
   },
   logoContainer: {
     width: '100%',
@@ -67,7 +83,7 @@ const styles = StyleSheet.create({
   },
   logo: {
 
-    width: '70%',
+    width: '72%',
     alignSelf : 'center',
     marginBottom: '10%',
   },
@@ -80,7 +96,7 @@ const styles = StyleSheet.create({
   square: {
     width: '95%',
     padding: '4%',
-    
+    paddingHorizontal: '5%',    
     backgroundColor: '#115BFB',
     borderRadius: 45,
     marginBottom: '8%',
@@ -90,7 +106,8 @@ const styles = StyleSheet.create({
   squareText: {
     color: 'white',
     fontSize: 24,
-    paddingVertical: '5%',
+    paddingHorizontal: '2%',
+    paddingVertical: '4%',
     fontFamily: 'AHRegular',
     textAlign: 'center',
   },

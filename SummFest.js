@@ -1,10 +1,21 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, Linking, ScrollView } from 'react-native';
 import BottomNavigation from './BottomNavigation';
+import * as Font from 'expo-font';
 
 const SummerFest = ({route, navigation}) => {
     const {data} = route.params;
     console.log(data.location2)
+    const loadFonts = async () => {
+  await Font.loadAsync({
+    'AHBold': require('./fonts/AtkinsonHyperlegible-Bold.ttf'),
+    'AHBoldItalic': require('./fonts/AtkinsonHyperlegible-BoldItalic.ttf'),
+    'AHItalic': require('./fonts/AtkinsonHyperlegible-Italic.ttf'),
+    'AHRegular': require('./fonts/AtkinsonHyperlegible-Regular.ttf'),
+  });}
+  useEffect(() => {
+    loadFonts();
+  }, []);
     let imagePath;
     switch (data.name) {
     case 'Summer Festival':
@@ -76,7 +87,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     paddingHorizontal: '7%',
-    fontWeight: 'bold',
+    fontFamily: 'AHBold',
     marginTop: '5%',
     marginBottom: '7%',
     color: "#313131"
@@ -90,14 +101,14 @@ const styles = StyleSheet.create({
   },
   eventName: {
     fontSize: 26,
-    fontWeight: 'bold',
+    fontFamily: 'AHBold',
     marginTop: '7%',
     color: "#313131",
     paddingHorizontal: '7%',
   },
   eventDate: {
     fontSize: 26,
-    fontWeight: 'bold',
+    fontFamily: 'AHBold',
     marginTop: '3%',
     color: "#313131",
     paddingHorizontal: '7%'
@@ -125,7 +136,7 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 16,
-    fontWeight: 400,
+    fontFamily: 'AHRegular',
     marginTop: '3%',
     paddingHorizontal: '7%',
     color: '#313131'

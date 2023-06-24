@@ -1,9 +1,20 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import BottomNavigation from './BottomNavigation';
+import * as Font from 'expo-font'
 
 const CourseDetails = ({route, navigation}) => {
-const {course, day, location, time} = route.params;
+const {course, day, location, time, instructor} = route.params;
+const loadFonts = async () => {
+  await Font.loadAsync({
+    'AHBold': require('./fonts/AtkinsonHyperlegible-Bold.ttf'),
+    'AHBoldItalic': require('./fonts/AtkinsonHyperlegible-BoldItalic.ttf'),
+    'AHItalic': require('./fonts/AtkinsonHyperlegible-Italic.ttf'),
+    'AHRegular': require('./fonts/AtkinsonHyperlegible-Regular.ttf'),
+  });}
+  useEffect(() => {
+    loadFonts();
+  }, []);
 
     
   return (
@@ -14,6 +25,7 @@ const {course, day, location, time} = route.params;
       <Text style={styles.normalText}>Day: {day}.</Text>
       <Text style={styles.normalText}>Time: {time}.</Text>
       <Text style={styles.normalText}>Location: {location}.</Text>
+      <Text style={styles.normalText}>instructor: {instructor}.</Text>
       <BottomNavigation navigation={navigation}/>
     </View>
   );
@@ -38,19 +50,20 @@ const styles = StyleSheet.create({
     paddingHorizontal: '10%',
     color: '#313131',
     fontSize: 24,
-    fontWeight: 700,
+    fontFamily: 'AHBold',
     marginBottom: '8%',
     
   },
   boldText: {
     alignSelf: 'flex-start',
     
-    fontWeight: 400,
+    fontFamily: 'AHRegular',
     fontSize: 16,
     paddingHorizontal: '10%',
     marginBottom: '7%',
   },
   normalText: {
+    fontFamily: 'AHRegular',
     alignSelf: 'flex-start',
     paddingHorizontal: '10%',
     marginBottom: '1%',

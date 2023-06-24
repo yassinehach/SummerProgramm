@@ -3,24 +3,105 @@
   "Course": "Intro to python",
   "Day": "Monday-Friday",
   "Time": "9am-5pm",
-  "Location": "Online"
+  "Location": "Online",
+  "Instructor": "Y"
  },
  {
   "Course": "Intro to R",
   "Day": "Monday-Friday",
   "Time": "10am-4pm",
-  "Location": "NQ1225"
+  "Location": "NQ1225",
+  "Instructor": "Z"
  },
  {
   "Course": "Data virtualization",
   "Day": "Monday-Thursday",
   "Time": "12pm-6pm",
-  "Location": "Hybrid"
+  "Location": "Hybrid",
+  "Instructor": "X"
  },
  {
-  "Course": "react native",
-  "Day": "Monday-Tuesday",
-  "Time": "10am-4pm",
-  "Location": "Online"
+  "Course": "Statistics and Data Analysis II: The Basics of Regression",
+  "Day": "Monday-Thursday",
+  "Time": "2pm-4pm",
+  "Location": "CHEM3310",
+  "Instructor": "A"
+ },
+ {
+  "Course": "Regression Analysis I: Introduction",
+  "Day": "Monday-Thursday",
+  "Time": "6pm-8pm",
+  "Location": "MH1145",
+  "Instructor": "B"
+ },
+ {
+  "Course": "Regression Analysis II: Linear Models",
+  "Day": "Monday-Thursday",
+  "Time": "8am-10am",
+  "Location": "CCCB0420",
+  "Instructor": "C"
+ },
+ {
+  "Course": "Multivariate Statistical Methods: Advanced Topics",
+  "Day": "Monday-Thursday",
+  "Time": "2pm-4pm",
+  "Location": "CCCB3360",
+  "Instructor": "D"
+ },
+ {
+  "Course": "Measurement, Scaling, and Dimensional Analysis",
+  "Day": "Monday-Thursday",
+  "Time": "7pm-9pm",
+  "Location": "CCCB3364",
+  "Instructor": "R"
+ },
+ {
+  "Course": "Simultaneous Equation Models",
+  "Day": "Monday-Thursday",
+  "Time": "4pm-6pm",
+  "Location": "CCCB3368",
+  "Instructor": "F"
+ },
+ {
+  "Course": "Categorical Data Analysis",
+  "Day": "Monday-Thursday",
+  "Time": "10am-12pm",
+  "Location": "LSA1440",
+  "Instructor": "G"
+ },
+ {
+  "Course": "Structural Equation Models With Latent Variables",
+  "Day": "Monday-Thursday",
+  "Time": "2pm-4pm",
+  "Location": "Hybrid",
+  "Instructor": "H"
+ },
+ {
+  "Course": "Maximum Likelihood Estimation I: Generalized Linear Models",
+  "Day": "Monday-Thursday",
+  "Time": "10am-12pm",
+  "Location": "Online",
+  "Instructor": "H"
+ },
+ {
+  "Course": "Network Analysis I: Introduction",
+  "Day": "Monday-Thursday",
+  "Time": "8am-10am",
+  "Location": "NQ2245",
+  "Instructor": "N"
+ },
+ {
+  "Course": "Network Analysis II: Advanced Topics",
+  "Day": "Monday-Thursday",
+  "Time": "7pm-9pm",
+  "Location": "BSB4000",
+  "Instructor": "H"
+ },
+ {
+  "Course": "Panel Data and Longitudinal Analysis",
+  "Day": "Monday-Thursday",
+  "Time": "6pm-8pm",
+  "Location": "ROSS3600",
+  "Instructor": "H"
  }
 ]

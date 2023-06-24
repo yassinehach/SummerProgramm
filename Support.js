@@ -1,8 +1,19 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import BottomNavigation from './BottomNavigation';
+import * as Font from 'expo-font'
 
 const SupportScreen = ({navigation}) => {
+  const loadFonts = async () => {
+  await Font.loadAsync({
+    'AHBold': require('./fonts/AtkinsonHyperlegible-Bold.ttf'),
+    'AHBoldItalic': require('./fonts/AtkinsonHyperlegible-BoldItalic.ttf'),
+    'AHItalic': require('./fonts/AtkinsonHyperlegible-Italic.ttf'),
+    'AHRegular': require('./fonts/AtkinsonHyperlegible-Regular.ttf'),
+  });}
+  useEffect(() => {
+    loadFonts();
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -19,6 +30,12 @@ const SupportScreen = ({navigation}) => {
       <View style= {styles.seperator}></View>
       <Text style={styles.texthere}> On Campus U-M DPSS</Text>
       <Text style={styles.phone}>+1 (734) 763-1131</Text>
+      <View style= {styles.seperator}></View>
+      <Text style={styles.texthere}> University Health Services</Text>
+      <Text style={styles.phone}>+1 (734) 764-8320</Text>
+      <View style= {styles.seperator}></View>
+      <Text style={styles.texthere}> U-M’s Anonymous Tip Line</Text>
+      <Text style={styles.phone}>+1 (800) 863-1355</Text>
       <BottomNavigation navigation={navigation}/>
     </View>
   );
@@ -50,7 +67,7 @@ const styles = StyleSheet.create({
     textAlign : 'left',
     paddingLeft : '10%',
     fontSize: 24,
-    fontWeight: 800,
+    fontFamily: 'AHBold',
     marginBottom : '3%',
   },
   textEm: {
@@ -58,20 +75,23 @@ const styles = StyleSheet.create({
     textAlign : 'left',
     paddingLeft : '10%',
     fontSize: 24,
-    fontWeight: 800,
+    fontFamily: 'AHBold',
     marginBottom : '3%',
   },
-  underlined : {textDecorationLine: 'underline'},
+  underlined : {
+    fontFamily: 'AHRegular',
+    textDecorationLine: 'underline'
+  },
   texthere: {
     textAlign : 'left',
     paddingLeft : '10%',
     fontSize: 16,
-    fontWeight: 400,
+    fontFamily: 'AHRegular'
   },
   seperator: {
     borderBottomWidth: 1,
-    marginTop: '3%',
-    marginBottom: '3%',
+    marginTop: '2%',
+    marginBottom: '2%',
     width : '85%',
     alignSelf : 'center',
     borderBottomColor: '#D9D9D9',
@@ -80,7 +100,7 @@ const styles = StyleSheet.create({
   phone: {
     color: '#D9D9D9',
     fontSize: 16,
-    fontWeight: 400,
+    fontFamily: 'AHRegular',
     paddingLeft: '12%'
   }
 });

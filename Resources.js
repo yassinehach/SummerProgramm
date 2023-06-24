@@ -7,23 +7,26 @@ const Resources = ({navigation}) => {
   
     
   const resourcesData = [
-    { id: '1', name: 'Bus Schedule', url: 'https://www.google.com/', nav: 'BusSchedule' },
-    { id: '2', name: 'Parking Information', url: 'https://www.google.com/', nav: 'Parking' },
-    { id: '3', name: 'Mental Health Resources', url: 'https://www.google.com/', nav: 'MentalHealth' },
-    { id: '4', name: 'Interactive Campus Map', url: 'https://www.google.com/', nav: 'InteractiveMap' },
-    { id: '5', name: 'University acronyms', url: 'https://www.google.com/', nav: 'UniversityAcronyms' },
+    { id: '1', name: 'Bus Schedule', url: 'https://ltp.umich.edu/campus-transit/routes-and-schedules/', nav: 'BusSchedule' },
+    { id: '2', name: 'Parking Information', url: 'https://ltp.umich.edu/parking/permit-parking/', nav: 'Parking' },
+    { id: '3', name: 'Mental Health Resources', url: 'https://uhs.umich.edu/stressresources', nav: 'MentalHealth' },
+    { id: '4', name: 'Interactive Campus Map', url: 'https://campusinfo.umich.edu/campusmap', nav: 'InteractiveMap' },
+    { id: '5', name: 'University acronyms', url: 'https://www.google.com/', nav: 'BuildingsAcronyms' },
     { id: '6', name: 'More resources', url:'https://www.google.com/', nav: 'Compass' },
   ];
 
   const renderResourceItem = ({ item }) => {
-    const handlePress = () => {
+    const handlePress1 = () => {
     navigation.navigate(item.nav);
   };
+  const handlePress2 = () => {
+    Linking.openURL(item.url)
+  }
   return(
     <View>
     <View style={styles.resourceItem}>
       <Text style={styles.resourceName}>{item.name}</Text>
-      <TouchableOpacity onPress={handlePress}>
+      <TouchableOpacity onPress={item.id === '5' || item.id === '6' ? handlePress1 : handlePress2}>
       <Text style={styles.readMore}>Read more</Text>
       </TouchableOpacity>
     </View>

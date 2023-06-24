@@ -30,6 +30,9 @@ const Events = ({navigation}) => {
         }
     navigation.navigate('SummerFest', {data} )
   }
+  const handlePicnics = () => {
+    navigation.navigate('Picnics')
+  }
     return (
     <View>
     <View style={styles.resourceItem}>
@@ -37,7 +40,7 @@ const Events = ({navigation}) => {
       <Text style={styles.resourceName}>{item.name}</Text>
       <Text style = {styles.eventDate}>{item.date}</Text>
       </View>
-      <TouchableOpacity onPress={handleReadMore}>
+      <TouchableOpacity onPress={item.id ==="4" || item.id ==="6" ? handlePicnics : handleReadMore  }>
       <Text style={styles.readMore}>Read more</Text>
       </TouchableOpacity>
     </View>

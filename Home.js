@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import { View, FlatList, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { View, FlatList, Text, StyleSheet, TouchableOpacity, Image, ScrollView, Linking } from 'react-native';
 import { MaterialIcons, Entypo } from '@expo/vector-icons';
 import Carousel from 'react-native-snap-carousel';
 import BottomNavigation from './BottomNavigation';
@@ -42,12 +42,18 @@ const HomeScreen = ({navigation}) => {
       navigation.navigate('Classes')
 
     }
+    const handlePicnics = () => {
+      navigation.navigate('Picnics')
+    }
     const renderFirstSliderItem = ({item}) => {
-      const handleResourcePress = () => {
+      const handleResourcePress1 = () => {
         navigation.navigate(item.nav)
       }
+      const handleResourcePress2 = () => {
+        Linking.openURL(item.url)
+      }
         return (
-          <TouchableOpacity onPress={handleResourcePress}>
+          <TouchableOpacity onPress={item.id === '2' ? handleResourcePress1 : handleResourcePress2}>
             <View style={styles.sliderItemOne}>
                 <Text style={styles.sliderText}>{item.name}</Text>
             </View>
@@ -69,7 +75,7 @@ const HomeScreen = ({navigation}) => {
         navigation.navigate('SummerFest', {data} )
       }
         return (
-          <TouchableOpacity onPress={handleEventPress}>
+          <TouchableOpacity onPress={item.id === '3' || item.id === '4' ? handlePicnics: handleEventPress}>
             <View style={styles.sliderItemTwo}>              
                 <Text style={styles.sliderText}>{item.name}</Text>
                 <View style={styles.dateContainer}>
@@ -84,6 +90,9 @@ const HomeScreen = ({navigation}) => {
     { id: '1', title: 'First in-person workshops', subtitle: 'Monday, June 5, 2023' },
     { id: '2', title: 'First 3-week session', subtitle: 'Monday, June 18, 2023' },
     { id: '3', title: 'First picnic', subtitle: 'Saturday, July 1, 2023' },
+    { id: '4', title: 'Intersession workshops, blacklocks and events', subtitle: 'Monday, July 10, 2023' },
+    { id: '5', title: 'Second 3-week session', subtitle: 'Monday, July 17, 2023' },
+    { id: '6', title: 'Second picnic', subtitle: 'Saturday, July 29, 2023' },
   ];
   return (
     <View style={styles.container}>
@@ -142,10 +151,10 @@ const HomeScreen = ({navigation}) => {
       </View>
       <Carousel
       data = {[
-         {id: '1', name: 'Bus Schedule', url: 'https://www.google.com/', nav: 'BusSchedule'},
-         {id: '5', name: 'University acronyms', url: 'https://www.google.com/', nav: 'UniversityAcronyms'},
-         {id: '2', name: 'Parking Information', url: 'https://www.google.com/', nav: 'Parking' },
-         {id: '3', name: 'Mental Health Resources', url: 'https://www.google.com/', nav: 'MentalHealth' },
+         {id: '1', name: 'Bus Schedule', url: 'https://ltp.umich.edu/campus-transit/routes-and-schedules/', nav: 'BusSchedule'},
+         {id: '2', name: 'University acronyms', url: 'https://www.google.com/', nav: 'BuildingsAcronyms'},
+         {id: '3', name: 'Parking Information', url: 'https://ltp.umich.edu/parking/permit-parking/', nav: 'Parking' },
+         {id: '4', name: 'Mental Health Resources', url: 'https://uhs.umich.edu/stressresources', nav: 'MentalHealth' },
         ]}
       renderItem={renderFirstSliderItem}
       sliderWidth={400}

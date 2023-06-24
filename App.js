@@ -22,6 +22,7 @@ import UniversityAcronyms from './Resources/UniversityAcronyms';
 import BuildingAcronyms from './BuildingAcronyms';
 import BuildingDetails from './BuildingDetail';
 import CourseDetails from './CourseDetails';
+import Picnics from './Picnics';
 import * as Font from 'expo-font';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
@@ -65,6 +66,11 @@ export default function App() {
       <Stack.Screen
       name = "Classes"
       component={Classes}
+      options={{title:'Back'}}
+      />
+      <Stack.Screen
+      name = "Picnics"
+      component={Picnics}
       options={{title:'Back'}}
       />
       <Stack.Screen
@@ -143,9 +149,6 @@ export default function App() {
 }
 
 const WelcomeScreen = ({navigation}) => {
-  const handleContinue = () => {
-    navigation.navigate('Home')
-  }
   const loadFonts = async () => {
   await Font.loadAsync({
     'AHBold': require('./fonts/AtkinsonHyperlegible-Bold.ttf'),
@@ -153,10 +156,14 @@ const WelcomeScreen = ({navigation}) => {
     'AHItalic': require('./fonts/AtkinsonHyperlegible-Italic.ttf'),
     'AHRegular': require('./fonts/AtkinsonHyperlegible-Regular.ttf'),
   });
+  console.log('fonts loaded')
 };
 useEffect(() => {
     loadFonts();
   }, []);
+  const handleContinue = () => {
+    navigation.navigate('Home')
+  }
   return (
     
       <View style={styles.container}>
@@ -167,11 +174,11 @@ useEffect(() => {
       </View>
       <View style={styles.contentContainer}>
         {/* <Text style={styles.title}>WELCOME</Text> */}
-        <Text style={styles.subtitle}>2023 ICPSR Summer Program</Text>
+        <Text style={{marginTop: '25%', fontSize: 20, marginBottom : '30%', fontFamily: "AHItalic"}}>2023 ICPSR Summer Program</Text>
       </View>
       
         <TouchableOpacity style={styles.button} onPress={handleContinue}>
-          <Text style={styles.buttonText}>Continue</Text>
+          <Text style={{color: 'white', fontSize: 32, fontFamily: "AHRegular"}}>Continue</Text>
         </TouchableOpacity>
         
       
@@ -216,10 +223,7 @@ const styles = StyleSheet.create({
     margin: '5%'
   },
   subtitle: {
-    marginTop: '25%',
-    fontSize: 20,
-    marginBottom : '30%',
-    fontFamily: 'AHItalic'
+    
     
   },
   button: {
@@ -238,9 +242,7 @@ const styles = StyleSheet.create({
      
   },
   buttonText: {
-    color: 'white',
-    fontSize: 32,
-    fontFamily: 'AHRegular'
+    
     
     
   },
