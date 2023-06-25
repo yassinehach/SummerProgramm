@@ -80,8 +80,8 @@ const styles = StyleSheet.create({
   logo: {
     alignSelf: 'center',
     marginTop: '3%',
-    width: '70%',
-    height: '5%',
+    width: 242,
+    height: 40,
     marginBottom: '8%',
   },
   title: {
@@ -143,20 +143,22 @@ const styles = StyleSheet.create({
   },
   locationContainer: {
     paddingVertical: '6%',
+    paddingRight: '5%',
     flexDirection : 'row'
 
   },
   location2Container: {
     paddingBottom: '6%',
+    paddingRight: '5%',
     flexDirection : 'row'
   },
   vector: {
-    marginTop: '1%',
+    marginTop: '0.5%',
     marginLeft : '7%',
   },
   locationText: {
     fontSize: 14,
-    fontWeight: 600,
+    fontFamily: 'AHBold',
     color: '#313131',
     paddingHorizontal : '3%'
 

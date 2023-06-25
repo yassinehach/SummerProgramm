@@ -58,8 +58,8 @@ const styles = StyleSheet.create({
   },
   logo: {
     marginTop: '5%',
-    width: '65%',
-    height: '7%',
+    width: 242,
+    height: 40,
     alignSelf : 'center',
     marginBottom: '15%',
   },

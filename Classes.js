@@ -18,7 +18,7 @@ const Classes = ({navigation}) => {
         navigation.navigate('Search')
     }
     const handleInstructorPress = () => {
-
+      navigation.navigate('Offices')
     }
   return (
     <View style={styles.container}>
@@ -29,10 +29,10 @@ const Classes = ({navigation}) => {
       <Text style={styles.title}>Class Schedule</Text>
       <Image source={require('./assets/Class.png')} style={styles.image} resizeMode="contain" />
       <Text style={styles.text}>You are not registered for classes {'\n'} in the summer term.</Text>
-      <TouchableOpacity style={styles.button} onPress={handleClassPress}>
+      <TouchableOpacity style={styles.button1} onPress={handleClassPress}>
         <Text style={styles.buttonText}>Search for{'\n'}Classes</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={handleInstructorPress}>
+      <TouchableOpacity style={styles.button2} onPress={handleInstructorPress}>
         <Text style={styles.buttonText}>Search for{'\n'}Instructors Offices</Text>
       </TouchableOpacity>
       </View>
@@ -55,8 +55,8 @@ const styles = StyleSheet.create({
   logo: {
     alignSelf: 'center',
     marginTop: '10%',
-    width: '60%',
-    height: '5%',
+    width: 242,
+    height: 40,
     marginBottom: '5%',
   
   },
@@ -81,13 +81,23 @@ const styles = StyleSheet.create({
     paddingRight: '15%',
 
   },
-  button: {
+  button1: {
     alignSelf : 'flex-end',
     width : '47%',
     backgroundColor: '#115BFB',
     borderRadius: 20,
     marginRight: '8%',
-    marginTop: '10%',
+    marginTop: '8%',
+    paddingVertical: '4%',
+    paddingHorizontal: '3%',
+  },
+  button2: {
+    alignSelf : 'flex-end',
+    width : '47%',
+    backgroundColor: '#115BFB',
+    borderRadius: 20,
+    marginRight: '8%',
+    marginTop: '5%',
     paddingVertical: '4%',
     paddingHorizontal: '3%',
   },

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { View, Text, Image, StyleSheet, Linking, FlatList, TouchableOpacity, ScrollView } from 'react-native';
 import BottomNavigation from './BottomNavigation';
-import BusSchedule from './Resources/BusSchedule';
+import * as Font from 'expo-font'
 
 const Resources = ({navigation}) => {
   
@@ -14,6 +14,16 @@ const Resources = ({navigation}) => {
     { id: '5', name: 'University acronyms', url: 'https://www.google.com/', nav: 'BuildingsAcronyms' },
     { id: '6', name: 'More resources', url:'https://www.google.com/', nav: 'Compass' },
   ];
+  const loadFonts = async () => {
+    await Font.loadAsync({
+    'AHBold': require('./fonts/AtkinsonHyperlegible-Bold.ttf'),
+    'AHBoldItalic': require('./fonts/AtkinsonHyperlegible-BoldItalic.ttf'),
+    'AHItalic': require('./fonts/AtkinsonHyperlegible-Italic.ttf'),
+    'AHRegular': require('./fonts/AtkinsonHyperlegible-Regular.ttf'),
+  });}
+  useEffect(() => {
+    loadFonts()  
+  }, [])
 
   const renderResourceItem = ({ item }) => {
     const handlePress1 = () => {
@@ -64,16 +74,17 @@ const styles = StyleSheet.create({
   scroll: { alignItems: 'center'},
   logo: {
     marginTop: '10%',
-    width: '65%',
-    height: '5%',
+    width: 242,
+    height: 40,
     marginBottom: '12%',
   },
   title: {
     fontSize: 24,
-    fontWeight: '800',
+    fontFamily : 'AHBold',
     marginBottom: '8%',
     alignSelf: 'flex-start',
-    paddingHorizontal: '10%'
+    paddingHorizontal: '10%',
+    color: '#313131',
   },
   resourcesList: {
     marginTop: '3%',
@@ -93,11 +104,12 @@ const styles = StyleSheet.create({
   resourceName: {
     color: 'white',
     fontSize: 16,
-    fontWeight: 'bold',
+    fontFamily: 'AHBold'
   },
   readMore: {
     color: 'white',
     fontSize: 10,
+    fontFamily: 'AHItalic'
   },
   separator: {
     borderBottomWidth: 1,

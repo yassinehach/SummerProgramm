@@ -48,8 +48,8 @@ const styles = StyleSheet.create({
   },
   logo: {
     marginTop: '10%',
-    width: '70%',
-    height: '6%',
+    width: 242,
+    height: 40,
     marginBottom: '15%',
   },
   heading: {
@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontFamily: 'AHBold',
     marginBottom: '10%',
+    color: '#313131'
   },
   paragraph: {
     alignSelf: 'flex-start',

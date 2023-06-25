@@ -64,7 +64,7 @@ const BuildingAcronyms = ({navigation}) => {
   };
   const [selectedBuilding, setSelectedBuilding] = useState('');
   const handleNextPress = () => {
-    const selectedItem = data2.find(item => item.Acronym === selectedBuilding);
+    const selectedItem = data2.find(item => item.Id === selectedBuilding);
     console.log(selectedItem)
     
     if (selectedItem) {
@@ -94,9 +94,9 @@ const BuildingAcronyms = ({navigation}) => {
         <Picker.Item label="Select a building..." value="" />
         {data2.map((item) => (
           <Picker.Item
-            key={item.acronym}
+            key={item.Id}
             label={item.Acronym}
-            value={item.Acronym}
+            value={item.Id}
             style = {styles.pickerItem}
             
           />
@@ -130,8 +130,8 @@ const styles = StyleSheet.create({
   },
   logo: {
     marginTop: '10%',
-    width: 240,
-    height: 50,
+    width: 242,
+    height: 40,
     marginBottom: '15%',
   },
   title: {

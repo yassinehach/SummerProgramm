@@ -59,14 +59,14 @@ const styles = StyleSheet.create({
     flexDirection : 'row',
     justifyContent : 'space-between',
     paddingHorizontal : '9%',
-    alignItems: 'center',
-    
-    borderTopLeftRadius: 25,
-    borderTopRightRadius: 25,
+    alignItems: 'center',    
+    borderTopLeftRadius: 35,
+    borderTopRightRadius: 35,
     width: '100%',
     backgroundColor: '#020BA9',
     
   },
+  
 
 });
 

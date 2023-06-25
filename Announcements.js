@@ -25,6 +25,12 @@ const Announcements = ({navigation}) => {
   const handleLinkPress = () => {
     Linking.openURL('https://gettextbookumich')
   }
+  const handleWelcome = () => {
+    navigation.navigate('WelcomeToProgram')
+  }
+  const handlePreparation = () => {
+    navigation.navigate('Preparation')
+  }
   return (
     <View style={styles.container}>
       <Logo />
@@ -32,13 +38,17 @@ const Announcements = ({navigation}) => {
         <View style= {styles.scroll}>
       <Text style={styles.title}>Important Announcements</Text>
       <View style={styles.squareContainer}>
+        <TouchableOpacity style={{ width : '95%'}} onPress={handleWelcome}>
         <View style={styles.square}>
             <Text style={styles.squareText}>Welcome to ICPSR summer program</Text>
         </View>
+        </TouchableOpacity>
+        <TouchableOpacity style={{ width : '95%'}} onPress={handlePreparation}>
         <View style={styles.square}>
             <Text style={styles.squareText}>Preparation</Text>
             
         </View>
+        </TouchableOpacity>
         <View style={styles.square}>
             <Text style={styles.squareText}>3-Week Courses Second Session starts today!</Text>
             <Text style={styles.squareTextSmall}> Have a great first day!!</Text>
@@ -83,7 +93,8 @@ const styles = StyleSheet.create({
   },
   logo: {
 
-    width: '72%',
+    width: 242,
+    height: 40,
     alignSelf : 'center',
     marginBottom: '10%',
   },

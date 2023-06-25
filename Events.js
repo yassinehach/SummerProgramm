@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { View, Text, Image, StyleSheet, FlatList, TouchableOpacity, ScrollView } from 'react-native';
 import BottomNavigation from './BottomNavigation';
+import * as Font from 'expo-font'
 
 const Events = ({navigation}) => {
   const eventsData = [
@@ -12,6 +13,17 @@ const Events = ({navigation}) => {
     { id: '6', name: 'Second Picnic', date: 'July 29, 2023', location:'location', location2:'', url:'#', img:'./assets/events/summerFest.png', description: 'description' },
     { id: '7', name: 'Pride', date: 'August 5, 2023', location:'Downtown Ann Arbor', location2:'', url:'https://www.annarbor.org/event/ann-arbor-pride/12008/', img:'./assets/events/pride.png', description: 'Ann Arbor Pride is a weekend festival in Ann Arbor, Michigan, celebrating lesbian, gay, bisexual, transgender, queer identities, community, and allyship hosted by the Jim Toy Community Center.'}
   ];
+  const loadFonts = async () => {
+    await Font.loadAsync({
+    'AHBold': require('./fonts/AtkinsonHyperlegible-Bold.ttf'),
+    'AHBoldItalic': require('./fonts/AtkinsonHyperlegible-BoldItalic.ttf'),
+    'AHItalic': require('./fonts/AtkinsonHyperlegible-Italic.ttf'),
+    'AHRegular': require('./fonts/AtkinsonHyperlegible-Regular.ttf'),
+  });}
+  useEffect(() => {
+    loadFonts()  
+  }, [])
+  
 //   const handleReadMore = () => {
 //     navigation.navigate('ArtFair')
 //   }
@@ -78,16 +90,17 @@ const styles = StyleSheet.create({
   },
   logo: {
     marginTop: '5%',
-    width: '65%',
-    height: '5%',
+    width: 242,
+    height: 40,
     marginBottom: '10%',
   },
   title: {
     fontSize: 24,
-    fontWeight: '800',
+    fontFamily: 'AHBold',
     marginBottom: '5%',
     alignSelf: 'flex-start',
-    paddingHorizontal: '10%'
+    paddingHorizontal: '10%',
+    color: '#313131'
   },
   resourcesList: {
     marginTop: '3%',
@@ -106,11 +119,12 @@ const styles = StyleSheet.create({
   resourceName: {
     color: 'white',
     fontSize: 16,
-    fontWeight: 'bold',
+    fontFamily: 'AHBold'
   },
   readMore: {
     color: 'white',
     fontSize: 10,
+    fontFamily: 'AHItalic'
   },
   separator: {
     borderBottomWidth: 1,
@@ -120,6 +134,7 @@ const styles = StyleSheet.create({
   eventDate: {
     color: '#D9D9D9',
     fontSize: 12,
+    fontFamily: 'AHRegular'
 
   }
 });

@@ -3,8 +3,9 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 import BottomNavigation from './BottomNavigation';
 import * as Font from 'expo-font'
 
-const BuildingDetails = ({route, navigation}) => {
-    const {acronym, location, name} = route.params;
+const InstructorDetails = ({route, navigation}) => {
+    const {room, firstName, lastName} = route.params;
+    console.log(room, firstName, lastName)
     const loadFonts = async () => {
   await Font.loadAsync({
     'AHBold': require('./fonts/AtkinsonHyperlegible-Bold.ttf'),
@@ -13,15 +14,15 @@ const BuildingDetails = ({route, navigation}) => {
     'AHRegular': require('./fonts/AtkinsonHyperlegible-Regular.ttf'),
   });}
   useEffect(() => {
-    loadFonts();
-  }, []);
+    loadFonts()   
+  }, [])
+  
+    
   return (
     <View style={styles.container}>
       <Image source={require('./assets/logo.png')} style={styles.logo} />
-      <Text style={styles.heading}>University buildings acronyms</Text>
-      <Text style={styles.boldText}>Building name and location for {acronym} are:</Text>
-      <Text style={styles.normalText}>Name: {name}.</Text>
-      <Text style={styles.normalText}>Location: {location}.</Text>
+      <Text style={styles.heading}>Instructors office</Text>
+      <Text style={styles.boldText}>the office for intructor {firstName} {lastName} is {room}</Text>
       
       <BottomNavigation navigation={navigation}/>
       
@@ -59,10 +60,9 @@ const styles = StyleSheet.create({
   },
   normalText: {
     alignSelf: 'flex-start',
-    fontFamily: 'AHRegular',
     paddingHorizontal: '10%',
     marginBottom: '1%',
   },
 });
 
-export default BuildingDetails;
+export default InstructorDetails;

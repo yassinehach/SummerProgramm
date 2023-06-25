@@ -15,20 +15,34 @@ import Acronyms from './Acronyms';
 import Announcements from './Announcements';
 import Classes from './Classes';
 import Parking from './Resources/Parking';
-import MentalHealth from './Resources/MentalHealth';
-import BusSchedule from './Resources/BusSchedule';
 import InteractiveMap from './Resources/InteractiveMap';
 import UniversityAcronyms from './Resources/UniversityAcronyms';
 import BuildingAcronyms from './BuildingAcronyms';
 import BuildingDetails from './BuildingDetail';
 import CourseDetails from './CourseDetails';
 import Picnics from './Picnics';
+import Offices from './Offices';
+import Welcome from './Welcome';
+import Preparation from './Preparation';
+import InstructorDetails from './IntructorDetails';
 import * as Font from 'expo-font';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  const loadFonts = async () => {
+  await Font.loadAsync({
+    'AHBold': require('./fonts/AtkinsonHyperlegible-Bold.ttf'),
+    'AHBoldItalic': require('./fonts/AtkinsonHyperlegible-BoldItalic.ttf'),
+    'AHItalic': require('./fonts/AtkinsonHyperlegible-Italic.ttf'),
+    'AHRegular': require('./fonts/AtkinsonHyperlegible-Regular.ttf'),
+  });
+  console.log('fonts loaded')
+};
+useEffect(() => {
+    loadFonts();
+  }, []);
   return (
     
     <NavigationContainer>
@@ -49,6 +63,16 @@ export default function App() {
       options={{title:'Back'}}
       />
       <Stack.Screen
+      name = "WelcomeToProgram"
+      component={Welcome}
+      options={{title:'Back'}}
+      />
+      <Stack.Screen
+      name = "Preparation"
+      component={Preparation}
+      options={{title:'Back'}}
+      />
+      <Stack.Screen
       name = "BuildingsAcronyms"
       component={BuildingAcronyms}
       options={{title:'Back'}}
@@ -66,6 +90,16 @@ export default function App() {
       <Stack.Screen
       name = "Classes"
       component={Classes}
+      options={{title:'Back'}}
+      />
+      <Stack.Screen
+      name = "Offices"
+      component={Offices}
+      options={{title:'Back'}}
+      />
+      <Stack.Screen
+      name = "InstructorDetails"
+      component={InstructorDetails}
       options={{title:'Back'}}
       />
       <Stack.Screen
@@ -91,16 +125,6 @@ export default function App() {
       <Stack.Screen
       name = "UniversityAcronyms"
       component={UniversityAcronyms}
-      options={{title:'Back'}}
-      />
-      <Stack.Screen
-      name = "BusSchedule"
-      component={BusSchedule}
-      options={{title:'Back'}}
-      />
-      <Stack.Screen
-      name = "MentalHealth"
-      component={MentalHealth}
       options={{title:'Back'}}
       />
       <Stack.Screen
@@ -149,18 +173,8 @@ export default function App() {
 }
 
 const WelcomeScreen = ({navigation}) => {
-  const loadFonts = async () => {
-  await Font.loadAsync({
-    'AHBold': require('./fonts/AtkinsonHyperlegible-Bold.ttf'),
-    'AHBoldItalic': require('./fonts/AtkinsonHyperlegible-BoldItalic.ttf'),
-    'AHItalic': require('./fonts/AtkinsonHyperlegible-Italic.ttf'),
-    'AHRegular': require('./fonts/AtkinsonHyperlegible-Regular.ttf'),
-  });
-  console.log('fonts loaded')
-};
-useEffect(() => {
-    loadFonts();
-  }, []);
+  
+  
   const handleContinue = () => {
     navigation.navigate('Home')
   }

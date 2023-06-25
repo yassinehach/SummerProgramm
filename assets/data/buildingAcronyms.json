@@ -2,46 +2,55 @@
  {
   "Acronym": "BSB",
   "Name": "Biological Sciences Building ",
-  "Location": "SKB1105 North University Ave. "
+  "Location": "SKB1105 North University Ave. ",
+  "Id": 1
  },
  {
   "Acronym": "CCCB",
   "Name": "Central Campus Classroom Building",
-  "Location": "1225 Geddes Ave. "
+  "Location": "1225 Geddes Ave. ",
+  "Id": 2
  },
  {
   "Acronym": "CHEM",
   "Name": "Chemistry Building",
-  "Location": "930 University Ave. "
+  "Location": "930 University Ave. ",
+  "Id": 3
  },
  {
   "Acronym": "LSA",
   "Name": "Literature, Science, & the Arts Building",
-  "Location": "500 S. State St."
+  "Location": "500 S. State St.",
+  "Id": 4
  },
  {
   "Acronym": "MH",
   "Name": "Mason Hall",
-  "Location": "419 S. State St. "
+  "Location": "419 S. State St. ",
+  "Id": 5
  },
  {
   "Acronym": "NQ",
   "Name": "North Quad",
-  "Location": "105 State St "
+  "Location": "105 State St ",
+  "Id": 6
  },
  {
   "Acronym": "SKB",
   "Name": "School of Kinesiology Building",
-  "Location": "830 North University Ave."
+  "Location": "830 North University Ave.",
+  "Id": 7
  },
  {
   "Acronym": "WEIS",
   "Name": "Weiser Hall",
-  "Location": "500 Church St."
+  "Location": "500 Church St.",
+  "Id": 8
  },
  {
   "Acronym": "ABC",
   "Name": "BUILDING ABC",
-  "Location": "500 Church St."
+  "Location": "500 Church St.",
+  "Id": 9
  }
 ]

@@ -1,20 +1,19 @@
 import React, {useState, useEffect} from 'react';
-import { View, Image, Text, Button, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
-import {Picker} from '@react-native-picker/picker'
+import { View, Text, Image, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import BottomNavigation from './BottomNavigation';
+import {Picker} from '@react-native-picker/picker'
 import * as Font from 'expo-font'
 
-const SearchScreen = ({navigation}) => {
-  // const data = [
-  //   { id: 1, course: 'course1', day: 'Monday-friday', location: 'Location 1', time: '9am-5pm' },
-  //   { id: 2, course: 'course2', day: 'Monday-friday', location: 'Location 2', time:'10am-4pm' },
-  //   { id: 3, course: 'course3', day: 'Monday-thursday', location: 'Location 3', time: '12pm-6pm' },
-  // ];
+const Offices = ({navigation}) => {
+//   const data = [
+//     { id: 1, course: 'course1', day: 'Monday-friday', location: 'Location 1', time: '9am-5pm' },
+//     { id: 2, course: 'course2', day: 'Monday-friday', location: 'Location 2', time:'10am-4pm' },
+//     { id: 3, course: 'course3', day: 'Monday-thursday', location: 'Location 3', time: '12pm-6pm' },
+//   ];
     const [selectedClass, setSelectedClass] = useState('');
     const [data2, setData2] = useState([])
-
     const loadFonts = async () => {
-  await Font.loadAsync({
+    await Font.loadAsync({
     'AHBold': require('./fonts/AtkinsonHyperlegible-Bold.ttf'),
     'AHBoldItalic': require('./fonts/AtkinsonHyperlegible-BoldItalic.ttf'),
     'AHItalic': require('./fonts/AtkinsonHyperlegible-Italic.ttf'),
@@ -23,27 +22,27 @@ const SearchScreen = ({navigation}) => {
 
     const fetchData = async () => {
     try {
-      const jsonData = require('./assets/data/classSchedule.json')
+      const jsonData = require('./assets/data/Offices.json')
       setData2(jsonData);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   };
   useEffect(() => {
-    loadFonts();
+    loadFonts()  
     fetchData();
   }, []);
 
     const handleNextPress = () => {
-    const selectedItem = data2.find(item => item.Course === selectedClass);
+    const selectedItem = data2.find(item => item.Id === selectedClass);
     if (selectedItem) {
-      navigation.navigate('CourseDetails', {
-        course: selectedItem.Course,
-        day: selectedItem.Day,
-        location: selectedItem.Location,
-        time: selectedItem.Time,
-        instructor: selectedItem.Instructor
+      navigation.navigate('InstructorDetails', {
+        room: selectedItem.Room,
+        firstName: selectedItem.FirstName,
+        lastName: selectedItem.LastName,
       });
+    
+    console.log(selectedItem)
     }
     // Handle the "Next" button press
     // console.log('Next button pressed');
@@ -54,8 +53,8 @@ const SearchScreen = ({navigation}) => {
       <ScrollView>
       <View style={styles.scroll}>
         <Image source={require('./assets/logo.png')} style={styles.logo} />
-      <Text style={styles.title}>Class schedule</Text>
-      <Text style={styles.text}>What session are you enrolled in?</Text>
+      <Text style={styles.text}>Instructors office</Text>
+      <Text style={styles.subtitle}> What instructor office you are looking for? </Text>
       <View style={styles.pickerContainer}>
       <Picker
         
@@ -65,16 +64,18 @@ const SearchScreen = ({navigation}) => {
         mode='dropdown'
         
       >
-        <Picker.Item label="select a Class..." value="" />
-        {data2.map((item) => (
+        <Picker.Item label="select an Instructor..." value="" />
+        {data2.map((item) => {
+            let fullName = item.FirstName + ' ' + item.LastName
+            return (            
           <Picker.Item
-            key={item.Course}
-            label={item.Course}
-            value={item.Course}
+            key={item.Id}
+            label= {fullName}
+            value={item.Id}
             
             
           />
-        ))}
+        )})}
       </Picker>
       </View>
       <TouchableOpacity onPress={handleNextPress}>
@@ -91,9 +92,8 @@ const SearchScreen = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    
     flex: 1,
-    
+    alignItems: 'center',
   },
   logo: {
     marginTop: '10%',
@@ -105,19 +105,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: '50%'
   },
-  
-  title: {
+  text: {
+    fontSize: 24,
+    fontWeight: '400',
+  },
+  text: {
     fontSize: 24,
     fontFamily: 'AHBold',
-    paddingHorizontal: '7%',
     marginBottom: '5%',
     alignSelf: 'flex-start'
   },
-  text: {
-    fontSize: 16,
-    paddingHorizontal: '7%',
-    fontFamily: 'AHRegular',
+  subtitle: {
     alignSelf: 'flex-start',
+    fontSize: 16,
+    fontFamily: 'AHRegular',
     marginBottom: '10%'
   },
   nextButton : {
@@ -142,12 +143,12 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: '#2F65A780',
     borderRadius: 20,
-    width: '90%',
+    width: '95%',
     marginBottom: '5%',
 
     
   },
-  
+
 });
 
-export default SearchScreen;
+export default Offices;
