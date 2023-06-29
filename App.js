@@ -26,8 +26,11 @@ import Welcome from './Welcome';
 import Preparation from './Preparation';
 import InstructorDetails from './IntructorDetails';
 import * as Font from 'expo-font';
+import { LogBox } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+LogBox.ignoreLogs(['ViewPropTypes will be removed']);
+LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -188,11 +191,11 @@ const WelcomeScreen = ({navigation}) => {
       </View>
       <View style={styles.contentContainer}>
         {/* <Text style={styles.title}>WELCOME</Text> */}
-        <Text style={{marginTop: '25%', fontSize: 20, marginBottom : '30%', fontFamily: "AHItalic"}}>2023 ICPSR Summer Program</Text>
+        <Text style={{marginTop: '25%', fontSize: 20, marginBottom : '30%', fontWeight: 400}}>2023 ICPSR Summer Program</Text>
       </View>
       
         <TouchableOpacity style={styles.button} onPress={handleContinue}>
-          <Text style={{color: 'white', fontSize: 32, fontFamily: "AHRegular"}}>Continue</Text>
+          <Text style={{color: 'white', fontSize: 32, fontWeight: 400}}>Continue</Text>
         </TouchableOpacity>
         
       
